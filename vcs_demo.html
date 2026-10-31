@@ -1,0 +1,4224 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vishaal Consultancy Services | Compliance System</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<script src="https://cdn.tailwindcss.com">
+function renderDeadlineTimeline(items) {
+  if (!items || !items.length) {
+    return `<div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center text-xs font-bold text-slate-400">
+      No deadlines found
+    </div>`;
+  }
+
+  return `
+    <div class="space-y-4">
+      ${items.map(d => {
+        const statusColor = d.status === "Overdue" ? "bg-red-600" : d.status === "Upcoming" ? "bg-amber-500" : "bg-green-600";
+        const badgeColor = d.status === "Overdue" ? "text-red-600 bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-800" :
+                           d.status === "Upcoming" ? "text-amber-700 bg-amber-50 dark:bg-amber-900/20 border-amber-100 dark:border-amber-800" :
+                           "text-green-700 bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800";
+
+        return `
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="timeline-dot ${statusColor} shadow"></div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <div class="flex-1 p-5 rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-sm glass-pop">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white">${d.title}</p>
+                  <p class="text-xs font-bold text-slate-500 mt-1">${d.client}</p>
+                  <p class="text-[11px] font-bold text-slate-400 mt-2">Due: ${d.due}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[11px] font-extrabold border ${badgeColor}">
+                  ${d.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js">
+function renderDeadlineTimeline(items) {
+  if (!items || !items.length) {
+    return `<div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center text-xs font-bold text-slate-400">
+      No deadlines found
+    </div>`;
+  }
+
+  return `
+    <div class="space-y-4">
+      ${items.map(d => {
+        const statusColor = d.status === "Overdue" ? "bg-red-600" : d.status === "Upcoming" ? "bg-amber-500" : "bg-green-600";
+        const badgeColor = d.status === "Overdue" ? "text-red-600 bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-800" :
+                           d.status === "Upcoming" ? "text-amber-700 bg-amber-50 dark:bg-amber-900/20 border-amber-100 dark:border-amber-800" :
+                           "text-green-700 bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800";
+
+        return `
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="timeline-dot ${statusColor} shadow"></div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <div class="flex-1 p-5 rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-sm glass-pop">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white">${d.title}</p>
+                  <p class="text-xs font-bold text-slate-500 mt-1">${d.client}</p>
+                  <p class="text-[11px] font-bold text-slate-400 mt-2">Due: ${d.due}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[11px] font-extrabold border ${badgeColor}">
+                  ${d.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  
+function renderDeadlineTimeline(items) {
+  if (!items || !items.length) {
+    return `<div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center text-xs font-bold text-slate-400">
+      No deadlines found
+    </div>`;
+  }
+
+  return `
+    <div class="space-y-4">
+      ${items.map(d => {
+        const statusColor = d.status === "Overdue" ? "bg-red-600" : d.status === "Upcoming" ? "bg-amber-500" : "bg-green-600";
+        const badgeColor = d.status === "Overdue" ? "text-red-600 bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-800" :
+                           d.status === "Upcoming" ? "text-amber-700 bg-amber-50 dark:bg-amber-900/20 border-amber-100 dark:border-amber-800" :
+                           "text-green-700 bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800";
+
+        return `
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="timeline-dot ${statusColor} shadow"></div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <div class="flex-1 p-5 rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-sm glass-pop">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white">${d.title}</p>
+                  <p class="text-xs font-bold text-slate-500 mt-1">${d.client}</p>
+                  <p class="text-[11px] font-bold text-slate-400 mt-2">Due: ${d.due}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[11px] font-extrabold border ${badgeColor}">
+                  ${d.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+</script>
+<style>
+    body { transition: background-color 0.5s ease, color 0.5s ease; }
+
+    .login-bg {
+      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: rgba(15, 23, 42, 0.95);
+      background-blend-mode: multiply;
+    }
+
+    .dashboard-bg {
+      background: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #cbd5e1 120%);
+      min-height: 100vh;
+    }
+
+    .dark .dashboard-bg {
+      background: radial-gradient(circle at 50% 0%, #020617 0%, #0f172a 100%);
+      min-height: 100vh;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .dark .glass-panel {
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    }
+
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0px); }
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99999;
+      background: rgba(15, 23, 42, 0.9);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 13px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.25s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(90deg, #2563eb, #1d4ed8);
+      color: white;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.25);
+    }
+
+    .chart-box {
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .dark .chart-box {
+      background: rgba(30,41,59,0.85);
+      border: 1px solid rgba(148,163,184,0.15);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+    }
+
+    .progress-bar {
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(148,163,184,0.25);
+    }
+
+    .progress-fill {
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #22c55e);
+      transition: width 0.6s ease;
+    }
+
+    .slide-panel { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .slide-panel.closed { transform: translateX(110%); }
+    .slide-panel.open { transform: translateX(0); }
+
+    .accordion-content {
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .accordion-open .accordion-content {
+      max-height: 2000px;
+      opacity: 1;
+    }
+
+    .accordion-icon { transition: transform 0.3s ease; }
+    .accordion-open .accordion-icon { transform: rotate(180deg); }
+
+    .table-row-hover:hover {
+      background: rgba(37,99,235,0.06);
+    }
+
+    .btn-pop:hover {
+      transform: scale(1.03);
+    }
+
+    .filter-badge {
+      background: rgba(37,99,235,0.1);
+      color: rgb(37,99,235);
+      border: 1px solid rgba(37,99,235,0.15);
+      font-weight: 900;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dark .filter-badge {
+      background: rgba(37,99,235,0.18);
+      border: 1px solid rgba(96,165,250,0.25);
+      color: rgb(147,197,253);
+    }
+
+    .client-tab-btn {
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .client-tab-btn.active {
+      color: white !important;
+      transform: scale(1.02);
+    }
+
+    .client-tab-slider {
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+  
+
+/* =========================
+   LIQUID GLASS EFFECT (UPGRADED)
+========================= */
+.liquid-glass{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.liquid-glass::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(circle at 20% 10%, rgba(59,130,246,0.35), transparent 60%),
+              radial-gradient(circle at 80% 30%, rgba(34,197,94,0.28), transparent 55%),
+              radial-gradient(circle at 40% 90%, rgba(168,85,247,0.22), transparent 60%);
+  filter: blur(18px);
+  opacity: 0.9;
+  z-index: 0;
+  animation: floatGlow 8s ease-in-out infinite alternate;
+}
+.liquid-glass::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.10));
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  z-index: 0;
+}
+.dark .liquid-glass::after{
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+  opacity: 0.35;
+}
+
+@keyframes floatGlow{
+  0%{ transform: translate3d(-10px,-6px,0) scale(1.02); }
+  50%{ transform: translate3d(12px,8px,0) scale(1.04); }
+  100%{ transform: translate3d(-6px,10px,0) scale(1.02); }
+}
+
+/* Smooth hover */
+.micro-bounce{ transition: transform .25s ease, box-shadow .25s ease; }
+.micro-bounce:hover{ transform: translateY(-2px) scale(1.01); box-shadow: 0 18px 45px rgba(0,0,0,0.12); }
+
+/* Icon buttons */
+.icon-btn{
+  transition: transform .2s ease, background-color .2s ease;
+}
+.icon-btn:hover{ transform: scale(1.05); }
+
+/* Canvas wrapper */
+.chart-canvas{
+  width: 100%;
+  height: 260px;
+}
+
+/* Subtle shimmer for cards */
+.shimmer{
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  transform: translateX(-120%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  animation: shimmerMove 2.8s ease-in-out infinite;
+  z-index:0;
+}
+.dark .shimmer::before{
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+}
+@keyframes shimmerMove{
+  0%{ transform: translateX(-120%); }
+  60%{ transform: translateX(120%); }
+  100%{ transform: translateX(120%); }
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE UPGRADES
+========================= */
+@media (max-width: 768px){
+  #sidebar{
+    position: fixed !important;
+    left: 16px;
+    top: 92px;
+    bottom: 16px;
+    z-index: 80;
+    width: 82vw !important;
+    max-width: 340px;
+    transform: translateX(-120%);
+    transition: transform .35s cubic-bezier(.2,.9,.2,1);
+  }
+  #sidebar.mobile-open{
+    transform: translateX(0%);
+  }
+  #mobileSidebarBackdrop{
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: rgba(2,6,23,0.45);
+    backdrop-filter: blur(8px);
+  }
+  #search-container{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  header{
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+}
+
+/* ===========================
+   CHAT UPGRADE (WHATSAPP UI)
+=========================== */
+.chat-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-bubble {
+  max-width: 78%;
+  padding: 12px 14px;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.35;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 1px solid rgba(226,232,240,0.9);
+  background: rgba(255,255,255,0.96);
+  color: rgb(15,23,42);
+  word-break: break-word;
+}
+
+.dark .chat-bubble {
+  background: rgba(30,41,59,0.9);
+  border: 1px solid rgba(148,163,184,0.15);
+  color: white;
+}
+
+.chat-bubble.me {
+  margin-left: auto;
+  background: linear-gradient(180deg, rgba(37,99,235,0.95), rgba(29,78,216,0.95));
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.dark .chat-bubble.me {
+  background: linear-gradient(180deg, rgba(59,130,246,0.95), rgba(37,99,235,0.95));
+}
+
+.chat-meta {
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  opacity: 0.7;
+}
+
+.chat-bubble.me .chat-meta { opacity: 0.85; }
+
+.chat-actions {
+  position: absolute;
+  top: 8px;
+  right: -36px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.18s ease;
+}
+
+.chat-bubble.me:hover .chat-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.chat-dot-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15,23,42,0.06);
+  border: 1px solid rgba(148,163,184,0.25);
+}
+
+.dark .chat-dot-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(148,163,184,0.15);
+}
+
+.chat-dot-btn:hover {
+  background: rgba(37,99,235,0.15);
+}
+
+.chat-menu {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  width: 160px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(226,232,240,0.9);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 9999;
+  display: none;
+}
+
+.dark .chat-menu {
+  background: rgba(30,41,59,0.95);
+  border: 1px solid rgba(148,163,184,0.15);
+}
+
+.chat-menu button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 900;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chat-menu button:hover {
+  background: rgba(37,99,235,0.08);
+}
+
+.chat-edited-pill {
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 900;
+  opacity: 0.85;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.chat-old-preview {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.7);
+  border: 1px dashed rgba(148,163,184,0.6);
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(15,23,42,0.85);
+}
+
+.dark .chat-old-preview {
+  background: rgba(2,6,23,0.4);
+  border: 1px dashed rgba(148,163,184,0.25);
+  color: rgba(255,255,255,0.85);
+}
+
+.chat-inputbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.svg-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(226,232,240,0.9);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+.dark .svg-btn {
+  background: rgba(30,41,59,0.85);
+  border: 1px solid rgba(148,163,184,0.15);
+}
+
+.svg-btn:hover {
+  transform: scale(1.03);
+}
+
+.svg-btn.primary {
+  background: linear-gradient(180deg, rgba(37,99,235,0.95), rgba(29,78,216,0.95));
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.svg-btn.primary svg { stroke: white; fill: white; }
+
+.svg-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: rgb(15,23,42);
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.dark .svg-btn svg { stroke: white; }
+
+.svg-btn.primary svg { stroke: white; }
+
+
+    /* ===== PREMIUM LIQUID GLASS UPGRADE ===== */
+    .glass-panel, .chart-box {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-panel::before, .chart-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.55), rgba(255,255,255,0.08), rgba(255,255,255,0.35));
+      opacity: 0.35;
+      transform: translateX(-40%);
+      filter: blur(10px);
+      pointer-events: none;
+      animation: glassSheen 8s ease-in-out infinite;
+    }
+
+    .dark .glass-panel::before, .dark .chart-box::before {
+      background: linear-gradient(120deg, rgba(148,163,184,0.25), rgba(15,23,42,0.08), rgba(148,163,184,0.20));
+      opacity: 0.35;
+    }
+
+    @keyframes glassSheen {
+      0% { transform: translateX(-60%) translateY(-10%); }
+      50% { transform: translateX(30%) translateY(10%); }
+      100% { transform: translateX(-60%) translateY(-10%); }
+    }
+
+    .glass-pop {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .glass-pop:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.14);
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      margin-top: 6px;
+      flex: 0 0 12px;
+    }
+
+    .timeline-line {
+      width: 2px;
+      flex: 1;
+      background: rgba(148,163,184,0.35);
+      margin-left: 5px;
+      border-radius: 999px;
+    }
+
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
+function renderDeadlineTimeline(items) {
+  if (!items || !items.length) {
+    return `<div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center text-xs font-bold text-slate-400">
+      No deadlines found
+    </div>`;
+  }
+
+  return `
+    <div class="space-y-4">
+      ${items.map(d => {
+        const statusColor = d.status === "Overdue" ? "bg-red-600" : d.status === "Upcoming" ? "bg-amber-500" : "bg-green-600";
+        const badgeColor = d.status === "Overdue" ? "text-red-600 bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-800" :
+                           d.status === "Upcoming" ? "text-amber-700 bg-amber-50 dark:bg-amber-900/20 border-amber-100 dark:border-amber-800" :
+                           "text-green-700 bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800";
+
+        return `
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="timeline-dot ${statusColor} shadow"></div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <div class="flex-1 p-5 rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-sm glass-pop">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white">${d.title}</p>
+                  <p class="text-xs font-bold text-slate-500 mt-1">${d.client}</p>
+                  <p class="text-[11px] font-bold text-slate-400 mt-2">Due: ${d.due}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[11px] font-extrabold border ${badgeColor}">
+                  ${d.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+</script></head>
+<body class="min-h-screen text-slate-900 dark:text-white flex flex-col dashboard-bg transition-colors duration-300">
+<div class="toast" id="toast">Saved</div>
+<!-- LOGIN -->
+<div class="fixed inset-0 z-50 flex items-center justify-center login-bg p-4" id="auth-view">
+<div class="glass-panel p-10 rounded-3xl w-full max-w-[430px] text-center shadow-2xl fade-in">
+<div class="mb-8">
+<div class="flex justify-center mb-7">
+<div class="bg-white p-4 rounded-2xl shadow-xl border border-slate-200">
+<img alt="Vishaal Consultancy Services Logo" class="w-[280px] object-contain" onerror="this.onerror=null; this.src='https://dummyimage.com/280x90/ffffff/000000&amp;text=LOGO+NOT+FOUND';" src="./vcs-logo.jpg"/>
+</div>
+</div>
+<p class="text-sm font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest mt-2">
+          Compliance Ecosystem
+        </p>
+</div>
+<div class="space-y-5">
+<div class="relative">
+<i class="absolute left-4 top-3.5 w-5 h-5 text-slate-500 dark:text-slate-400" data-lucide="mail"></i>
+<input class="w-full pl-12 pr-4 py-3 bg-white dark:bg-slate-700/50 border border-slate-300 dark:border-slate-500 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-slate-900 dark:text-white font-medium" id="email" placeholder="admin@toyota.com" type="email" value="suhas@vcs.com"/>
+</div>
+<div class="relative">
+<i class="absolute left-4 top-3.5 w-5 h-5 text-slate-500 dark:text-slate-400" data-lucide="lock"></i>
+<input class="w-full pl-12 pr-4 py-3 bg-white dark:bg-slate-700/50 border border-slate-300 dark:border-slate-500 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-slate-900 dark:text-white font-medium" id="password" type="password" value="password"/>
+</div>
+<button class="w-full bg-slate-900 dark:bg-blue-600 text-white font-bold py-4 rounded-xl btn-pop transition-transform shadow-xl flex items-center justify-center gap-2" id="loginBtn">
+          Login <i class="w-5 h-5" data-lucide="arrow-right"></i>
+</button>
+</div>
+<p class="mt-8 text-xs font-semibold text-slate-500 dark:text-slate-400">
+        Try: <b>suhas@vcs.com</b> (Staff) or <b>admin@toyota.com</b> (Client)
+      </p>
+<button class="mt-4 text-[10px] text-red-400 underline hover:text-red-500" id="resetBtn">
+        Reset System Data
+      </button>
+</div>
+</div>
+<!-- DASHBOARD -->
+<div class="hidden flex-col relative min-h-screen" id="dashboard-container">
+<header class="glass-panel h-20 flex items-center justify-between px-8 sticky top-4 z-40 mx-4 rounded-2xl border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-4"><button class="md:hidden p-2.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-200 bg-white/50 dark:bg-slate-700/50 shadow-sm border border-slate-200 dark:border-slate-600 icon-btn" id="hamburgerBtn"><i class="bi bi-list text-[22px]"></i></button>
+<div class="bg-white px-3 py-2 rounded-xl shadow-md border border-slate-200">
+<img alt="VCS Logo" class="w-[150px] object-contain" onerror="this.onerror=null; this.style.display='none';" src="./vcs-logo.jpg"/>
+</div>
+<div>
+<h1 class="font-bold text-slate-900 dark:text-white text-lg">VCS Dashboard</h1>
+<div class="text-[11px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider flex items-center gap-1" id="role-badge"></div>
+</div>
+</div>
+<div class="hidden md:flex items-center bg-white dark:bg-slate-700/80 rounded-full px-5 py-2.5 w-96 relative group z-30 shadow-sm border border-slate-200 dark:border-slate-600 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 dark:focus-within:ring-blue-900/30 transition-all" id="search-container">
+<input class="bg-transparent border-none outline-none text-sm w-full placeholder-slate-500 dark:text-white text-slate-900 font-medium pr-2" id="globalSearchInput" placeholder="Search clients or documents..." type="text"/>
+<button class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 p-1" id="searchBtn">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="11" cy="11" r="8"></circle>
+<path d="m21 21-4.3-4.3"></path>
+</svg>
+</button>
+<div class="absolute top-full left-0 mt-3 w-full glass-panel rounded-xl hidden overflow-hidden border border-slate-200 dark:border-slate-700" id="search-dropdown">
+<div class="max-h-64 overflow-y-auto" id="search-results"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-200 bg-white/50 dark:bg-slate-700/50 shadow-sm border border-slate-200 dark:border-slate-600" id="themeBtn">
+<svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+</svg>
+<svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="4"></circle>
+<path d="M12 2v2"></path><path d="M12 20v2"></path>
+<path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+<path d="M2 12h2"></path><path d="M20 12h2"></path>
+<path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+</svg>
+</button>
+<div class="relative">
+<button class="p-2.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-200 bg-white/50 dark:bg-slate-700/50 shadow-sm border border-slate-200 dark:border-slate-600 relative" id="notifBtn">
+<i class="bi bi-bell-fill text-[18px]"></i>
+<span class="absolute top-2 right-2.5 w-2.5 h-2.5 bg-red-600 rounded-full hidden" id="notif-badge"></span>
+</button>
+<div class="absolute right-0 top-14 w-80 glass-panel rounded-2xl hidden z-50 border border-slate-200 dark:border-slate-600 overflow-hidden" id="notif-dropdown">
+<div class="px-5 py-4 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<span class="font-bold text-base text-slate-900 dark:text-white">Notifications</span>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-white" id="notifCloseBtn">
+<i class="w-5 h-5" data-lucide="x"></i>
+</button>
+</div>
+<div class="max-h-64 overflow-y-auto" id="notif-list">
+<div class="p-8 text-center text-slate-400 text-xs">No new notifications</div>
+</div>
+</div>
+</div>
+<div class="w-px h-8 bg-slate-300 dark:bg-slate-600 mx-2"></div>
+<div class="relative">
+<button class="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" id="userBtn">
+<div class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-600 flex items-center justify-center text-lg border border-blue-200 dark:border-slate-500 text-blue-700">
+              👨‍💼
+            </div>
+</button>
+<div class="absolute right-0 top-16 w-72 glass-panel rounded-3xl hidden z-50 overflow-hidden border border-slate-200 dark:border-slate-600" id="user-dropdown">
+<div class="p-6 bg-gradient-to-br from-blue-50 to-white dark:from-slate-800 dark:to-slate-900 border-b border-slate-200 dark:border-slate-700 flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-slate-700 flex items-center justify-center text-2xl shadow-inner border border-blue-200 dark:border-slate-500">
+                  👨‍💼
+                </div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-lg leading-tight" id="menu-user-name">User</h4>
+<p class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider" id="menu-user-role">
+                    Access
+                  </p>
+</div>
+</div>
+<button class="hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full p-1" id="userCloseBtn">
+<i class="w-4 h-4 text-slate-500" data-lucide="x"></i>
+</button>
+</div>
+<div class="p-2 space-y-1">
+<button class="w-full flex items-center gap-3 p-3.5 rounded-2xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all group" id="staffInfoBtn">
+<div class="p-2.5 bg-blue-50 dark:bg-blue-900/30 rounded-xl group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors shadow-sm">
+<i class="w-5 h-5 text-blue-600" data-lucide="info"></i>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold text-slate-800 dark:text-white group-hover:text-blue-600 transition-colors">Staff Info</p>
+<p class="text-[11px] text-slate-500 font-medium">View profile details</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-3 p-3.5 rounded-2xl hover:bg-red-50 dark:hover:bg-red-900/20 transition-all group" id="logoutBtn">
+<div class="p-2.5 bg-red-50 dark:bg-red-900/30 rounded-xl group-hover:bg-red-100 dark:group-hover:bg-red-900/50 transition-colors shadow-sm">
+<i class="w-5 h-5 text-red-600" data-lucide="log-out"></i>
+</div>
+<div class="text-left">
+<p class="text-sm font-bold text-slate-800 dark:text-white group-hover:text-red-600 transition-colors">Sign Out</p>
+<p class="text-[11px] text-slate-500 font-medium">End session</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 gap-6 px-6 pt-6 pb-12">
+<aside class="hidden md:flex flex-col w-72 glass-panel rounded-3xl border border-slate-200 dark:border-slate-700 shadow-lg p-6 sticky top-28 h-[calc(100vh-140px)] overflow-y-auto" id="sidebar">
+</aside>
+<main class="flex-1 transition-colors" id="main-content"></main>
+</div>
+<div class="hidden" id="mobileSidebarBackdrop"></div></div>
+<!-- CLIENT DETAIL PANEL -->
+<div class="fixed inset-y-0 right-0 w-full md:w-[650px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl shadow-2xl z-40 slide-panel closed border-l border-slate-200 dark:border-slate-700 flex flex-col" id="client-detail-panel">
+<div class="h-20 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-8 bg-slate-50/80 dark:bg-slate-800/80">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3" id="detail-name"></h2>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors border border-transparent hover:border-slate-300 dark:hover:border-slate-600" id="panelCloseBtn">
+<i class="bi bi-x-lg text-[20px]"></i>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-8 space-y-6" id="sidebar-content"></div>
+</div>
+<div class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 hidden transition-opacity" id="panel-backdrop"></div>
+<!-- DOCUMENT MODAL -->
+<div class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4 transition-opacity" id="document-modal">
+<div class="bg-white dark:bg-slate-800 w-full max-w-4xl h-[600px] rounded-3xl shadow-2xl overflow-hidden fade-in relative border border-slate-200 dark:border-slate-600 flex flex-col">
+<div class="h-16 px-6 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between bg-slate-50 dark:bg-slate-800">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-blue-100 dark:bg-slate-700 rounded-lg text-blue-600 dark:text-blue-400">
+<i class="w-5 h-5" data-lucide="file-text"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white" id="doc-modal-title">Document Name</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Document Management &amp; Remarks</p>
+</div>
+</div>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors mr-2" id="docBackBtn" title="Back">
+  <i class="bi bi-arrow-left text-[18px]"></i>
+</button>
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors" id="docCloseBtn">
+<i class="bi bi-x-lg text-[18px]"></i>
+</button>
+</div>
+<div class="flex-1 flex overflow-hidden">
+<div class="w-1/3 bg-slate-50 dark:bg-slate-900/50 p-6 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-6" id="doc-modal-left"></div>
+<div class="flex-1 flex flex-col bg-white dark:bg-slate-800">
+<div class="p-4 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800">
+<h4 class="font-bold text-sm text-slate-700 dark:text-white flex items-center gap-2">
+<i class="w-4 h-4 text-blue-500" data-lucide="message-square"></i>
+              Remarks &amp; Feedback
+            </h4>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 dark:bg-slate-900/20" id="doc-chat-list"></div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+  <div class="chat-inputbar">
+    <button id="docCancelBtn" class="svg-btn" title="Cancel">
+  <i class="bi bi-x-lg text-[18px]"></i>
+</button>
+
+    <input type="text" id="doc-chat-input"
+      placeholder="Type a remark regarding this document..."
+      class="flex-1 bg-slate-100 dark:bg-slate-700 border-none rounded-2xl px-5 py-4 text-sm outline-none focus:ring-2 focus:ring-blue-500 dark:text-white font-bold"/>
+
+    <button id="docSendBtn" class="svg-btn primary" title="Send">
+  <i class="bi bi-send-fill text-[18px] text-white"></i>
+</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function toggleMobileSidebar(forceClose=false){
+  const sb = document.getElementById("sidebar");
+  const bd = document.getElementById("mobileSidebarBackdrop");
+  if(!sb || !bd) return;
+
+  if(forceClose){
+    sb.classList.remove("mobile-open");
+    bd.classList.add("hidden");
+    return;
+  }
+
+  const open = sb.classList.toggle("mobile-open");
+  if(open) bd.classList.remove("hidden");
+  else bd.classList.add("hidden");
+}
+
+
+/* =========================
+   UTILITIES
+========================= */
+const DATA_VERSION = "vcs_final_system_complete_v1";
+
+function $(id) { return document.getElementById(id); }
+
+function loadData(key, fallback) {
+  const stored = localStorage.getItem(key);
+  try { return stored ? JSON.parse(stored) : fallback; }
+  catch { return fallback; }
+}
+
+function saveData(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+
+function renderPage(html) {
+  const el = $("main-content");
+  el.classList.remove("fade-in");
+  void el.offsetWidth;
+  el.innerHTML = `<div class="fade-in">${html}</div>`;
+}
+function showToast(msg) {
+  const toast = $("toast");
+  toast.innerText = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 1600);
+}
+
+function renderIcons() {
+  try { lucide.createIcons(); } catch(e){}
+}
+
+function toggleTheme() {
+  document.documentElement.classList.toggle("dark");
+  saveData("vcs_theme", document.documentElement.classList.contains("dark"));
+}
+
+function loadTheme() {
+  const dark = loadData("vcs_theme", false);
+  if (dark) document.documentElement.classList.add("dark");
+}
+
+function getMonthOptions() {
+  return [
+    { val: "01", label: "January" },
+    { val: "02", label: "February" },
+    { val: "03", label: "March" },
+    { val: "04", label: "April" },
+    { val: "05", label: "May" },
+    { val: "06", label: "June" },
+    { val: "07", label: "July" },
+    { val: "08", label: "August" },
+    { val: "09", label: "September" },
+    { val: "10", label: "October" },
+    { val: "11", label: "November" },
+    { val: "12", label: "December" }
+  ];
+}
+
+function getYearOptions() {
+  const years = [];
+  const current = new Date().getFullYear();
+  for (let y = current - 2; y <= current + 8; y++) years.push(y.toString());
+  return years;
+}
+
+function getCurrentMonth() {
+  return (new Date().getMonth() + 1).toString().padStart(2, "0");
+}
+
+function getCurrentYear() {
+  return new Date().getFullYear().toString();
+}
+
+function getQuarterFromMonth(month) {
+  const m = parseInt(month);
+  if (m >= 1 && m <= 3) return "Q1";
+  if (m >= 4 && m <= 6) return "Q2";
+  if (m >= 7 && m <= 9) return "Q3";
+  return "Q4";
+}
+
+function getHalfFromMonth(month) {
+  const m = parseInt(month);
+  return m <= 6 ? "H1" : "H2";
+}
+
+
+/* =========================
+   FINANCIAL YEAR HELPERS (APR-MAR)
+   FY Quarter System:
+   Q1: Apr-Jun, Q2: Jul-Sep, Q3: Oct-Dec, Q4: Jan-Mar
+   Half Year:
+   H1: Apr-Sep, H2: Oct-Mar
+========================= */
+function getFinancialYearFromMonthYear(month, year) {
+  const m = parseInt(month, 10);
+  const y = parseInt(year, 10);
+  if (m >= 4) return { start: y, end: y + 1 };
+  return { start: y - 1, end: y };
+}
+
+function getFinancialYearLabel(month, year) {
+  const fy = getFinancialYearFromMonthYear(month, year);
+  const end2 = String(fy.end).slice(-2);
+  return `FY${fy.start}-${end2}`;
+}
+
+function getFYQuarterFromMonth(month) {
+  const m = parseInt(month, 10);
+  if (m >= 4 && m <= 6) return "Q1";
+  if (m >= 7 && m <= 9) return "Q2";
+  if (m >= 10 && m <= 12) return "Q3";
+  return "Q4";
+}
+
+function getFYSemiFromMonth(month) {
+  const m = parseInt(month, 10);
+  if (m >= 4 && m <= 9) return "H1";
+  return "H2";
+}
+
+function makePeriodKey() {
+  const year = App.state.filterYear;
+  const month = App.state.filterMonth;
+
+  if (App.state.returnType === "monthly") return `${month}-${year}`;
+
+  if (App.state.returnType === "quarterly") {
+    return `${getFYQuarterFromMonth(month)}-${getFinancialYearLabel(month, year)}`;
+  }
+
+  if (App.state.returnType === "halfYearly") {
+    return `${getFYSemiFromMonth(month)}-${getFinancialYearLabel(month, year)}`;
+  }
+
+  if (App.state.returnType === "annual") {
+    return `${getFinancialYearLabel(month, year)}`;
+  }
+
+  return `${month}-${year}`;
+}
+
+/* =========================
+   CLIENT DEADLINES + ANALYTICS (FILTER AWARE)
+========================= */
+
+function getClientDeadlines(client) {
+  const year = parseInt(App.state.filterYear);
+  const month = parseInt(App.state.filterMonth);
+
+  if (typeof buildDeadlinesForMonth !== "function") {
+    return [
+      { title: "PF Payment", date: "15th", type: "Monthly", clientId: client.id },
+      { title: "ESI Filing", date: "15th", type: "Monthly", clientId: client.id },
+      { title: "PT Filing", date: "20th", type: "Monthly", clientId: client.id }
+    ];
+  }
+
+  const all = buildDeadlinesForMonth(year, month);
+  return all.filter(d => d.clientId === client.id);
+}
+
+function calcClientCompletion(client) {
+  const data = App.db.compliance[client.type];
+  const required = [];
+
+  required.push(...data.registers.map(x => ({ name: x })));
+  required.push(...data.notices.map(x => ({ name: x })));
+  required.push(...data.onboarding.map(x => ({ name: x })));
+  required.push(...data.vcs_activities.map(x => ({ name: x })));
+
+  if (App.state.returnType === "monthly") required.push(...data.returns.monthly.map(x => ({ name: x })));
+  if (App.state.returnType === "quarterly") required.push(...data.returns.quarterly.map(x => ({ name: x })));
+  if (App.state.returnType === "halfYearly") required.push(...data.returns.halfYearly.map(x => ({ name: x })));
+  if (App.state.returnType === "annual") required.push(...data.returns.annual.map(x => ({ name: x })));
+
+  const uploads = (App.db.uploads && App.db.uploads[client.id]) ? App.db.uploads[client.id] : {};
+
+  let done = 0;
+  required.forEach(item => {
+    const key = makeDocKey(item.name);
+    const rec = uploads[key];
+    if (rec && rec.status === "Uploaded") done++;
+  });
+
+  const total = required.length || 1;
+  const percent = Math.round((done / total) * 100);
+
+  return { done, total, percent };
+}
+
+function renderClientDeadlinesBox(client) {
+  const list = getClientDeadlines(client);
+
+  return `
+    <div class="chart-box border border-blue-200 dark:border-blue-800 bg-blue-50/80 dark:bg-blue-900/20">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <h3 class="font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <i data-lucide="bell" class="w-5 h-5 text-blue-700 dark:text-blue-300"></i>
+            Upcoming Deadlines
+          </h3>
+          <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">
+            Filter: <b>${makePeriodKey()}</b>
+          </p>
+        </div>
+
+        <button onclick="renderCalendarPage()" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-4 py-2 rounded-xl shadow-lg">
+          Calendar
+        </button>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        ${(list && list.length) ? list.slice(0, 6).map(d => `
+          <div class="p-4 rounded-2xl bg-white/80 dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900">
+            <p class="text-xs font-bold text-blue-700 dark:text-blue-300 uppercase">${d.type}</p>
+            <p class="text-sm font-extrabold mt-2 text-slate-900 dark:text-white">${d.title}</p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-bold mt-1">${d.date}</p>
+          </div>
+        `).join("") : `
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-blue-100 dark:border-blue-900 text-center">
+            <p class="text-xs font-bold text-slate-500">No deadlines for this filter</p>
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+}
+
+function renderClientAnalyticsBox(client) {
+  const c = calcClientCompletion(client);
+
+  return `
+    <div class="chart-box">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <h3 class="font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <i data-lucide="bar-chart-3" class="w-5 h-5 text-blue-600"></i>
+            Analytics
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
+            Based on your uploads for <b>${makePeriodKey()}</b>
+          </p>
+        </div>
+
+        <div class="text-right">
+          <p class="text-xs font-bold text-slate-500 uppercase">Completion</p>
+          <p class="text-2xl font-extrabold text-blue-600">${c.percent}%</p>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+          <span>Uploaded Documents</span>
+          <span>${c.done}/${c.total}</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${c.percent}%"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mt-6">
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <p class="text-xs font-bold text-slate-500 uppercase">Pending</p>
+          <p class="text-2xl font-extrabold text-red-600 mt-1">${Math.max(0, c.total - c.done)}</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <p class="text-xs font-bold text-slate-500 uppercase">Uploaded</p>
+          <p class="text-2xl font-extrabold text-green-600 mt-1">${c.done}</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <p class="text-xs font-bold text-slate-500 uppercase">Period</p>
+          <p class="text-lg font-extrabold text-blue-600 mt-2">${makePeriodKey()}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+
+function makeDocKey(docName) {
+  return `${docName} | ${makePeriodKey()}`;
+}
+
+function formatDocLabel(docName) {
+  return `${docName} (${makePeriodKey()})`;
+}
+
+function parseDocKey(docKey) {
+  if (!docKey.includes("|")) return { name: docKey, period: "" };
+  const parts = docKey.split("|").map(x => x.trim());
+  return { name: parts[0], period: parts[1] || "" };
+}
+
+function toggleAccordion(btn) {
+  btn.closest(".accordion-box").classList.toggle("accordion-open");
+}
+
+/* =========================
+   DATABASE + DEFAULT DATA
+========================= */
+
+const defaultComplianceData = {
+  factory: {
+    registers: [
+      "Muster Roll (Form 22)",
+      "Register of Adult Workers (Form 11)",
+      "Register of Leave with Wages (Form 14)",
+      "Register of Accident or Dangerous Occurrences (Form 23)",
+      "Inspection Book (Form 6, Form 28 & Form 29)",
+      "Overtime Register (Form 9)"
+    ],
+    notices: [
+      "Abstracts in Kannada & English",
+      "Notice of periods of work (Form no.10)",
+      "National & Festival Holidays List",
+      "Factory License",
+      "Standing Order"
+    ],
+    onboarding: ["PF Form 11", "ESI Nomination Form 2"],
+
+    returns: {
+      monthly: ["ESI (15th)", "PF (15th)", "PT (20th)"],
+      quarterly: ["Employment Exchange (ER-1)"],
+      halfYearly: ["Half Yearly Return (Form 21) Deadline: July 15th"],
+      annual: ["Combined Annual Return (Form 20) (Deadline: Jan 31st)"]
+    },
+
+    vcs_activities: ["Salary Statement Processing", "ECR & Challan Generation"]
+  },
+
+  shop: {
+    registers: [
+      "Muster Roll (Form T)",
+      "Appointment Letter (Form Q)",
+      "Leave Register (Form F)",
+      "Equal Remuneration Register"
+    ],
+    notices: [
+      "Abstracts (Kannada & English)",
+      "Notice of Periods of Work (Form P)",
+      "S&E License (Form C)"
+    ],
+    onboarding: ["Employee Declaration Form", "ESI Nomination Form 2"],
+
+    returns: {
+      monthly: ["ESI (15th)", "PF (15th)", "PT (20th)"],
+      quarterly: ["Employment Exchange (ER-1)"],
+      halfYearly: ["Contract Labour Returns"],
+      annual: ["Form U (Jan 31st)", "PT Annual (Apr 30th)"]
+    },
+
+    vcs_activities: ["Salary Processing", "Payslip Generation"]
+  }
+};
+
+const staffUsers = {
+  "suhas@vcs.com": "Suhas",
+  "ramesh@vcs.com": "Ramesh",
+  "priya@vcs.com": "Priya",
+  "admin@vcs.com": "Vishaal"
+};
+
+const defaultClients = [
+  { id: 1, name: "Toyota Kirloskar Motor", type: "factory", service: "Statutory Compliance", health: 95, assignee: "Suhas", email: "admin@toyota.com", joinDate: "2025-01-01" },
+  { id: 2, name: "Volvo Group India", type: "factory", service: "Factory License Renewal", health: 88, assignee: "Suhas", email: "admin@volvo.com", joinDate: "2025-02-10" },
+  { id: 3, name: "Bosch Automotive", type: "factory", service: "Statutory Compliance Audit", health: 75, assignee: "Suhas", email: "admin@bosch.com", joinDate: "2025-03-05" },
+  { id: 4, name: "Myntra Designs", type: "shop", service: "Payroll Processing", health: 100, assignee: "Priya", email: "admin@myntra.com", joinDate: "2025-01-20" },
+  { id: 5, name: "Zomato Ltd", type: "shop", service: "S&E Registration", health: 92, assignee: "Priya", email: "admin@zomato.com", joinDate: "2025-04-15" },
+  { id: 6, name: "Flipkart Internet", type: "shop", service: "Statutory Compliance", health: 85, assignee: "Priya", email: "admin@flipkart.com", joinDate: "2025-05-01" },
+  { id: 7, name: "L&T Construction", type: "factory", service: "BOCW License", health: 60, assignee: "Ramesh", email: "admin@lnt.com", joinDate: "2025-06-10" },
+  { id: 8, name: "DHL Express", type: "shop", service: "Vendor Compliance Audit", health: 70, assignee: "Ramesh", email: "admin@dhl.com", joinDate: "2025-07-01" }
+];
+
+if (localStorage.getItem("vcs_version") !== DATA_VERSION) {
+  localStorage.clear();
+  localStorage.setItem("vcs_version", DATA_VERSION);
+}
+
+const App = {
+  state: {
+    role: null,
+    staffName: null,
+    email: null,
+    currentClientId: null,
+    currentClientType: null,
+    openDocKey: null,
+    activePage: null,
+
+    filterMonth: getCurrentMonth(),
+    filterYear: getCurrentYear(),
+    returnType: "monthly"
+  },
+
+  db: {
+    compliance: loadData("vcs_compliance_data", defaultComplianceData),
+    clients: loadData("vcs_clients", defaultClients),
+    notifications: loadData("vcs_notifications", []),
+
+    tasks: loadData("vcs_tasks", []),
+    uploads: loadData("vcs_uploads", {}),
+
+    docChat: loadData("vcs_doc_chat", {}),
+    clientChat: loadData("vcs_client_chat", {})
+  }
+};
+
+/* =========================
+   NOTIFICATIONS
+========================= */
+
+function pushNotification(title, desc) {
+  App.db.notifications.unshift({
+    id: Date.now(),
+    title,
+    desc,
+    time: new Date().toLocaleString()
+  });
+
+  App.db.notifications = App.db.notifications.slice(0, 25);
+  saveData("vcs_notifications", App.db.notifications);
+  renderNotifications();
+pushAutoReminderNotifications();
+}
+
+function renderNotifications() {
+  const badge = $("notif-badge");
+  const list = $("notif-list");
+
+  if (!App.db.notifications.length) {
+    badge.classList.add("hidden");
+    list.innerHTML = `<div class="p-8 text-center text-slate-400 text-xs">No new notifications</div>`;
+    return;
+  }
+
+  badge.classList.remove("hidden");
+
+  list.innerHTML = App.db.notifications.map(n => `
+    <div class="p-4 border-b border-slate-100 dark:border-slate-700 last:border-0 hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+      <p class="font-extrabold text-sm">${n.title}</p>
+      <p class="text-xs text-slate-500 font-medium mt-1">${n.desc}</p>
+      <p class="text-[10px] text-slate-400 font-bold mt-2">${n.time}</p>
+    </div>
+  `).join("");
+}
+
+/* =========================
+   UI HELPERS
+========================= */
+
+function togglePanel(show) {
+  const panel = $("client-detail-panel");
+  const backdrop = $("panel-backdrop");
+
+  if (show) {
+    panel.classList.remove("closed");
+    panel.classList.add("open");
+    backdrop.classList.remove("hidden");
+  } else {
+    panel.classList.remove("open");
+    panel.classList.add("closed");
+    backdrop.classList.add("hidden");
+  }
+}
+
+function closeDocumentModal() {
+  $("document-modal").classList.add("hidden");
+}
+
+function setActiveSidebar(pageKey) {
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+  const activeBtn = document.querySelector(`.nav-btn[data-page="${pageKey}"]`);
+  if (activeBtn) activeBtn.classList.add("active");
+}
+
+function renderComingSoon(title) {
+  $("main-content").innerHTML = `
+    <div class="max-w-4xl mx-auto py-20 text-center space-y-6 fade-in">
+      <div class="w-20 h-20 mx-auto rounded-3xl bg-blue-600 flex items-center justify-center shadow-xl">
+        <i data-lucide="construction" class="w-10 h-10 text-white"></i>
+      </div>
+      <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white">${title}</h2>
+      <p class="text-slate-500 dark:text-slate-400 text-lg font-medium">
+        This module will be available in the next upgrade.
+      </p>
+    </div>
+  `;
+  renderIcons();
+}
+
+function getStaffClientsPool() {
+  let pool = [...App.db.clients];
+  if (App.state.staffName !== "Vishaal") {
+    pool = pool.filter(c => c.assignee === App.state.staffName);
+  }
+  return pool;
+}
+
+function renderStatCard(title, value, icon, color) {
+  return `
+    <div class="glass-panel p-6 rounded-2xl flex justify-between items-start hover:scale-[1.01] transition-transform">
+      <div>
+        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">${title}</p>
+        <h3 class="text-3xl font-extrabold mt-1">${value}</h3>
+      </div>
+      <div class="p-3.5 bg-${color}-100 dark:bg-${color}-900/30 text-${color}-600 rounded-2xl">
+        <i data-lucide="${icon}" class="w-6 h-6"></i>
+      </div>
+    </div>
+  `;
+}
+
+/* =========================
+   STAFF SIDEBAR
+========================= */
+
+function renderStaffSidebar() {
+  $("sidebar").innerHTML = `
+    <div class="flex items-center gap-3 mb-8">
+      <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg">
+        <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">Staff Console</h3>
+        <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+          Admin Panel
+        </p>
+      </div>
+    </div>
+
+    <nav class="space-y-2 flex-1">
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_overview">
+        <i data-lucide="home" class="w-5 h-5 text-blue-600"></i>
+        Overview
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_clients">
+        <i data-lucide="users" class="w-5 h-5 text-blue-600"></i>
+        Clients
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_tasks">
+        <i data-lucide="check-square" class="w-5 h-5 text-blue-600"></i>
+        Task Manager
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_uploads">
+        <i data-lucide="upload-cloud" class="w-5 h-5 text-blue-600"></i>
+        Upload Tracker
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_analytics">
+        <i data-lucide="bar-chart-3" class="w-5 h-5 text-blue-600"></i>
+        Analytics
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_reports">
+        <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
+        Reports
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_calendar">
+        <i class="bi bi-calendar-event-fill text-blue-600 text-[18px]"></i>
+        Deadlines Calendar
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+        data-page="staff_reminders">
+        <i class="bi bi-bell-fill text-blue-600 text-[18px]"></i>
+        Reminders
+      </button>
+
+
+    </nav>
+
+    <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
+      <p class="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mb-2">System</p>
+
+      <div class="flex items-center justify-between bg-slate-50 dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700">
+        <div>
+          <p class="text-sm font-extrabold text-slate-900 dark:text-white">Secure Mode</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">LocalStorage Active</p>
+        </div>
+        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+      </div>
+    </div>
+  `;
+
+  renderIcons();
+  bindSidebarNavigation();
+}
+
+function bindSidebarNavigation() {
+  document.querySelectorAll(".nav-btn").forEach(btn => {
+    btn.onclick = () => { toggleMobileSidebar(true);
+      const page = btn.dataset.page;
+      App.state.activePage = page;
+      setActiveSidebar(page);
+
+      if (page === "staff_overview") renderStaffOverview();
+      if (page === "staff_clients") renderStaffClients();
+      if (page === "staff_tasks") renderStaffTasks();
+      if (page === "staff_uploads") renderStaffUploads();
+      if (page === "staff_analytics") renderStaffAnalytics();
+      if (page === "staff_reports") renderComingSoon("Reports Module");
+    };
+  });
+}
+
+/* =========================
+   STAFF OVERVIEW (IMPROVED)
+========================= */
+
+function renderStaffOverview() {
+  const pool = getStaffClientsPool();
+
+  const factories = pool.filter(c => c.type === "factory");
+  const shops = pool.filter(c => c.type === "shop");
+
+  const completed = pool.filter(c => c.health === 100).length;
+  const processing = pool.filter(c => c.health >= 50 && c.health < 100).length;
+  const pending = pool.filter(c => c.health < 50).length;
+
+  const myTasks = App.db.tasks.filter(t => t.assignedTo === App.state.staffName);
+  const pendingTasks = myTasks.filter(t => t.status !== "Done").length;
+
+  const deadlineItems = [
+    { title: "PF Filing", client: pool[0]?.name || "Toyota Kirloskar Motor", due: "15th (Monthly)", status: "Upcoming" },
+    { title: "ESI Filing", client: pool[1]?.name || "Volvo Group India", due: "15th (Monthly)", status: "Upcoming" },
+    { title: "PT Filing", client: pool[2]?.name || "Bosch Automotive", due: "20th (Monthly)", status: "Overdue" },
+    { title: "Annual Return", client: pool[3]?.name || "Myntra Designs", due: "31 Jan", status: "Upcoming" }
+  ];
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div class="flex items-center justify-between flex-wrap gap-6">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight">Welcome, ${App.state.staffName}</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Your daily compliance overview.</p>
+        </div>
+
+        <div class="flex gap-3 flex-wrap">
+          <button onclick="renderStaffTasks()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg btn-pop transition-transform">
+            View Tasks
+          </button>
+          <button onclick="renderStaffClients()" class="bg-slate-900 dark:bg-slate-700 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl shadow-lg btn-pop transition-transform">
+            Manage Clients
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+        <button onclick="renderStaffUploads()" class="glass-panel glass-pop p-6 rounded-3xl text-left border border-slate-200 dark:border-slate-700">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-700">
+              <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400"></i>
+          </div>
+          <p class="mt-4 text-sm font-extrabold">Upload Tracker</p>
+          <p class="text-xs font-bold text-slate-500 mt-1">See pending uploads</p>
+        </button>
+
+        <button onclick="renderStaffAnalytics()" class="glass-panel glass-pop p-6 rounded-3xl text-left border border-slate-200 dark:border-slate-700">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-700">
+              <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400"></i>
+          </div>
+          <p class="mt-4 text-sm font-extrabold">Analytics</p>
+          <p class="text-xs font-bold text-slate-500 mt-1">Graphs & insights</p>
+        </button>
+
+        <button onclick="renderStaffTasks()" class="glass-panel glass-pop p-6 rounded-3xl text-left border border-slate-200 dark:border-slate-700">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-2xl bg-amber-100 dark:bg-amber-900/30 text-amber-700">
+              <i data-lucide="check-square" class="w-6 h-6"></i>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400"></i>
+          </div>
+          <p class="mt-4 text-sm font-extrabold">Task Manager</p>
+          <p class="text-xs font-bold text-slate-500 mt-1">Assign & complete tasks</p>
+        </button>
+
+        <button onclick="renderStaffClients()" class="glass-panel glass-pop p-6 rounded-3xl text-left border border-slate-200 dark:border-slate-700">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-700">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400"></i>
+          </div>
+          <p class="mt-4 text-sm font-extrabold">Client Directory</p>
+          <p class="text-xs font-bold text-slate-500 mt-1">Open compliance panels</p>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-4 gap-6">
+        ${renderStatCard("My Clients", pool.length, "users", "blue")}
+        ${renderStatCard("Pending Clients", pending, "alert-circle", "red")}
+        ${renderStatCard("Processing", processing, "loader-2", "amber")}
+        ${renderStatCard("Completed", completed, "check-circle-2", "green")}
+      </div>
+
+      <div class="grid grid-cols-3 gap-6">
+
+        <div class="chart-box glass-pop">
+          <h3 class="font-extrabold text-lg flex items-center gap-2">
+            <i data-lucide="briefcase" class="w-5 h-5 text-blue-600"></i>
+            Task Summary
+          </h3>
+
+          <div class="mt-6 space-y-5">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>Pending Tasks</span>
+                <span>${pendingTasks}</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${myTasks.length ? Math.round((pendingTasks / myTasks.length) * 100) : 0}%"></div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <p class="text-sm font-extrabold text-slate-900 dark:text-white">Total Tasks</p>
+              <p class="text-3xl font-extrabold text-blue-600 mt-1">${myTasks.length}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-box glass-pop col-span-2">
+          <h3 class="font-extrabold text-lg flex items-center gap-2">
+            <i data-lucide="pie-chart" class="w-5 h-5 text-blue-600"></i>
+            Client Type Split
+          </h3>
+
+          <div class="mt-6 space-y-6">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>Factory Clients</span>
+                <span>${factories.length}</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${pool.length ? Math.round((factories.length / pool.length) * 100) : 0}%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>Shop Clients</span>
+                <span>${shops.length}</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${pool.length ? Math.round((shops.length / pool.length) * 100) : 0}%"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-5 rounded-2xl bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700">
+                <p class="text-xs font-bold uppercase text-slate-500">Factory Act</p>
+                <p class="text-2xl font-extrabold text-blue-700 mt-1">${factories.length}</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-green-50 dark:bg-slate-800 border border-green-100 dark:border-slate-700">
+                <p class="text-xs font-bold uppercase text-slate-500">Shops Act</p>
+                <p class="text-2xl font-extrabold text-green-700 mt-1">${shops.length}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="chart-box glass-pop">
+        <h3 class="font-extrabold text-lg flex items-center gap-2 mb-6">
+          <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+          Upcoming Compliance Deadlines
+        </h3>
+
+        ${renderDeadlineTimeline(deadlineItems)}
+      </div>
+
+    </div>
+  `;
+
+  renderIcons();
+}
+
+/* =========================
+   STAFF ANALYTICS (GRAPHICAL)
+========================= */
+
+
+function renderStaffAnalytics() {
+  const pool = getStaffClientsPool();
+
+  const avgHealth = pool.length
+    ? Math.round(pool.reduce((sum, c) => sum + c.health, 0) / pool.length)
+    : 0;
+
+  const factories = pool.filter(c => c.type === "factory").length;
+  const shops = pool.filter(c => c.type === "shop").length;
+
+  const completed = pool.filter(c => c.health === 100).length;
+  const pending = pool.filter(c => c.health < 70).length;
+
+  const maxHealth = pool.length ? Math.max(...pool.map(c => c.health)) : 0;
+  const minHealth = pool.length ? Math.min(...pool.map(c => c.health)) : 0;
+
+  // Demo monthly compliance health curve (fake but realistic)
+  const months = ["Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar"];
+  const base = Math.max(40, avgHealth - 18);
+  const series = months.map((_,i)=> Math.min(100, Math.max(30, base + Math.round(Math.sin(i/2)*8) + i)));
+
+  // Task stats
+  const myTasks = App.db.tasks.filter(t => {
+    if (App.state.staffName === "Vishaal") return true;
+    return t.assignedTo === App.state.staffName;
+  });
+  const doneTasks = myTasks.filter(t => t.status === "Done").length;
+  const pendingTasks = myTasks.filter(t => t.status !== "Done").length;
+
+  // Upload stats
+  let uploadedCount = 0;
+  let pendingUploads = 0;
+
+  pool.forEach(c => {
+    const store = App.db.uploads[c.id] || {};
+    Object.keys(store).forEach(k => {
+      if (store[k]?.fileName) uploadedCount++;
+      else pendingUploads++;
+    });
+  });
+
+  // fallback demo if empty
+  if (uploadedCount === 0 && pendingUploads === 0) {
+    uploadedCount = Math.max(2, Math.round(pool.length * 2));
+    pendingUploads = Math.max(3, Math.round(pool.length * 3));
+  }
+
+  renderPage(`
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12">
+
+      <div>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Analytics</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+          Compliance insights and graphical reports.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-4 gap-6">
+        <div class="chart-box micro-bounce liquid-glass shimmer">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest relative z-10">Average Health</p>
+          <p class="text-5xl font-extrabold text-blue-600 mt-3 relative z-10">${avgHealth}%</p>
+        </div>
+        <div class="chart-box micro-bounce liquid-glass shimmer">
+           <p class="text-xs font-bold text-slate-500 uppercase tracking-widest relative z-10">Completed</p>
+           <p class="text-5xl font-extrabold text-green-600 mt-3 relative z-10">${completed}</p>
+        </div>
+        <div class="chart-box micro-bounce liquid-glass shimmer">
+           <p class="text-xs font-bold text-slate-500 uppercase tracking-widest relative z-10">Pending</p>
+           <p class="text-5xl font-extrabold text-red-600 mt-3 relative z-10">${pending}</p>
+        </div>
+        <div class="chart-box micro-bounce liquid-glass shimmer">
+           <p class="text-xs font-bold text-slate-500 uppercase tracking-widest relative z-10">Total Clients</p>
+           <p class="text-5xl font-extrabold text-slate-800 dark:text-white mt-3 relative z-10">${pool.length}</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-6">
+
+        <div class="chart-box micro-bounce liquid-glass col-span-2">
+          <h3 class="font-extrabold text-lg mb-4 flex items-center gap-2 relative z-10">
+            <i data-lucide="activity" class="w-5 h-5 text-blue-600"></i>
+            Compliance Health Trend (Demo)
+          </h3>
+          <div class="relative z-10">
+            <canvas id="healthTrendChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-box micro-bounce liquid-glass">
+          <h3 class="font-extrabold text-lg mb-4 flex items-center gap-2 relative z-10">
+            <i data-lucide="pie-chart" class="w-5 h-5 text-blue-600"></i>
+            Client Split
+          </h3>
+          <div class="relative z-10">
+            <canvas id="clientSplitChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-3 gap-6">
+
+        <div class="chart-box micro-bounce liquid-glass">
+          <h3 class="font-extrabold text-lg mb-4 flex items-center gap-2 relative z-10">
+            <i data-lucide="upload-cloud" class="w-5 h-5 text-blue-600"></i>
+            Upload Status
+          </h3>
+          <div class="relative z-10">
+            <canvas id="uploadStatusChart" class="chart-canvas"></canvas>
+          </div>
+          <div class="mt-4 text-xs font-bold text-slate-500 relative z-10">
+            Uploaded: <span class="text-green-600">${uploadedCount}</span> • Pending: <span class="text-red-600">${pendingUploads}</span>
+          </div>
+        </div>
+
+        <div class="chart-box micro-bounce liquid-glass">
+          <h3 class="font-extrabold text-lg mb-4 flex items-center gap-2 relative z-10">
+            <i data-lucide="check-square" class="w-5 h-5 text-blue-600"></i>
+            Task Completion
+          </h3>
+          <div class="relative z-10">
+            <canvas id="taskChart" class="chart-canvas"></canvas>
+          </div>
+          <div class="mt-4 text-xs font-bold text-slate-500 relative z-10">
+            Done: <span class="text-green-600">${doneTasks}</span> • Pending: <span class="text-red-600">${pendingTasks}</span>
+          </div>
+        </div>
+
+        <div class="chart-box micro-bounce liquid-glass">
+          <h3 class="font-extrabold text-lg mb-4 flex items-center gap-2 relative z-10">
+            <i data-lucide="shield-check" class="w-5 h-5 text-blue-600"></i>
+            Health Range
+          </h3>
+
+          <div class="space-y-4 relative z-10">
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>Highest</span>
+                <span class="text-green-600">${maxHealth}%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:${maxHealth}%; background: linear-gradient(90deg,#22c55e,#16a34a);"></div></div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>Lowest</span>
+                <span class="text-red-600">${minHealth}%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:${minHealth}%; background: linear-gradient(90deg,#ef4444,#dc2626);"></div></div>
+            </div>
+
+            <div class="pt-2 text-xs font-bold text-slate-500">
+              Range gives quick risk visibility.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  `);
+
+  renderIcons();
+
+  // CHARTS INIT
+  if (typeof Chart !== "undefined") {
+    const commonOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { font: { weight: "bold" } } }
+      }
+    };
+
+    const trendCtx = document.getElementById("healthTrendChart");
+    if (trendCtx) {
+      new Chart(trendCtx, {
+        type: "line",
+        data: {
+          labels: months,
+          datasets: [{
+            label: "Avg Compliance Health",
+            data: series,
+            tension: 0.35,
+            borderWidth: 3,
+            pointRadius: 3
+          }]
+        },
+        options: commonOptions
+      });
+    }
+
+    const splitCtx = document.getElementById("clientSplitChart");
+    if (splitCtx) {
+      new Chart(splitCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["Factory", "Shop"],
+          datasets: [{
+            data: [factories, shops],
+            borderWidth: 2
+          }]
+        },
+        options: commonOptions
+      });
+    }
+
+    const uploadCtx = document.getElementById("uploadStatusChart");
+    if (uploadCtx) {
+      new Chart(uploadCtx, {
+        type: "bar",
+        data: {
+          labels: ["Uploaded", "Pending"],
+          datasets: [{
+            label: "Documents",
+            data: [uploadedCount, pendingUploads],
+            borderWidth: 2
+          }]
+        },
+        options: commonOptions
+      });
+    }
+
+    const taskCtx = document.getElementById("taskChart");
+    if (taskCtx) {
+      new Chart(taskCtx, {
+        type: "pie",
+        data: {
+          labels: ["Done", "Pending"],
+          datasets: [{
+            data: [doneTasks, pendingTasks],
+            borderWidth: 2
+          }]
+        },
+        options: commonOptions
+      });
+    }
+  }
+}
+
+
+/* =========================
+   STAFF CLIENTS
+========================= */
+
+function renderStaffClients() {
+  const pool = getStaffClientsPool();
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Clients</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            Manage compliance clients and view health scores
+          </p>
+        </div>
+
+        <button onclick="openAddClientModal()"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg btn-pop transition-transform">
+          + Add Client
+        </button>
+      </div>
+
+      <div class="glass-panel p-6 rounded-3xl border border-slate-200 dark:border-slate-700">
+        <div class="flex items-center justify-between mb-5">
+          <p class="font-extrabold text-slate-900 dark:text-white text-lg">Client List</p>
+
+          <div class="relative flex bg-slate-100 dark:bg-slate-800 rounded-2xl p-1 w-[340px] border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div id="clientTabSlider"
+              class="client-tab-slider absolute top-1 bottom-1 left-1 w-1/3 rounded-2xl bg-blue-600 shadow-lg">
+            </div>
+
+            <button data-type="all"
+              class="client-tab-btn active relative z-10 flex-1 py-2 font-extrabold text-sm rounded-2xl text-white">
+              All
+            </button>
+
+            <button data-type="factory"
+              class="client-tab-btn relative z-10 flex-1 py-2 font-extrabold text-sm rounded-2xl text-slate-700 dark:text-slate-200">
+              Factory
+            </button>
+
+            <button data-type="shop"
+              class="client-tab-btn relative z-10 flex-1 py-2 font-extrabold text-sm rounded-2xl text-slate-700 dark:text-slate-200">
+              Shop
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                <th class="py-3 px-3">Client</th>
+                <th class="py-3 px-3">Type</th>
+                <th class="py-3 px-3">Service</th>
+                <th class="py-3 px-3">Assignee</th>
+                <th class="py-3 px-3">Join Date</th>
+                <th class="py-3 px-3">Health</th>
+                <th class="py-3 px-3 text-right">Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="clientTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  const tbody = $("clientTableBody");
+
+  function drawTable(type) {
+    let filtered = [...pool];
+    if (type !== "all") filtered = filtered.filter(c => c.type === type);
+
+    tbody.innerHTML = filtered.map(c => `
+      <tr class="border-b border-slate-100 dark:border-slate-700 table-row-hover">
+        <td class="py-4 px-3 font-extrabold">${c.name}</td>
+        <td class="py-4 px-3 uppercase text-xs font-bold text-blue-600">${c.type}</td>
+        <td class="py-4 px-3 text-slate-500 font-medium">${c.service}</td>
+        <td class="py-4 px-3 font-bold">${c.assignee}</td>
+        <td class="py-4 px-3 font-bold text-purple-600">${c.joinDate || "-"}</td>
+        <td class="py-4 px-3 font-extrabold ${c.health < 70 ? "text-red-600" : "text-green-600"}">${c.health}%</td>
+        <td class="py-4 px-3 text-right">
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs shadow-md"
+            onclick="openClientPanel(${c.id})">
+            View
+          </button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  drawTable("all");
+
+  const slider = $("clientTabSlider");
+  const tabBtns = document.querySelectorAll(".client-tab-btn");
+
+  function activateTab(type) {
+    tabBtns.forEach(btn => btn.classList.remove("active"));
+    const activeBtn = document.querySelector(`.client-tab-btn[data-type="${type}"]`);
+    if (activeBtn) activeBtn.classList.add("active");
+
+    if (type === "all") slider.style.transform = "translateX(0%)";
+    if (type === "factory") slider.style.transform = "translateX(100%)";
+    if (type === "shop") slider.style.transform = "translateX(200%)";
+
+    drawTable(type);
+  }
+
+  tabBtns.forEach(btn => {
+    btn.onclick = () => activateTab(btn.dataset.type);
+  });
+
+  renderIcons();
+}
+
+/* =========================
+   ADD CLIENT MODAL
+========================= */
+
+function openAddClientModal() {
+  const staffOptions = Object.values(staffUsers);
+
+  const modalHTML = `
+    <div id="addClientModal" class="fixed inset-0 z-[120] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+      <div class="glass-panel rounded-3xl w-full max-w-xl p-8 fade-in relative border border-slate-200 dark:border-slate-700">
+
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Add New Client</h3>
+          <button onclick="closeAddClientModal()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Client Name</label>
+            <input id="newClientName" type="text"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+              placeholder="Example: Infosys Pvt Ltd">
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Client Email (Login)</label>
+            <input id="newClientEmail" type="email"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+              placeholder="admin@company.com">
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Act Type</label>
+            <select id="newClientType"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+              <option value="factory">Factory</option>
+              <option value="shop">Shop</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Service Required</label>
+            <input id="newClientService" type="text"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+              placeholder="Example: Statutory Compliance">
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Join Date</label>
+            <input id="newClientJoinDate" type="date"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Assign To</label>
+            <select id="newClientAssignee"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+              ${staffOptions.map(s => `<option value="${s}">${s}</option>`).join("")}
+            </select>
+          </div>
+
+          <button onclick="saveNewClient()"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg mt-3 btn-pop transition-transform">
+            Save Client
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+  renderIcons();
+}
+
+function closeAddClientModal() {
+  const modal = document.getElementById("addClientModal");
+  if (modal) modal.remove();
+}
+
+function saveNewClient() {
+  const name = $("newClientName").value.trim();
+  const email = $("newClientEmail").value.trim();
+  const type = $("newClientType").value;
+  const service = $("newClientService").value.trim();
+  const joinDate = $("newClientJoinDate").value;
+  const assignee = $("newClientAssignee").value;
+
+  if (!name || !email || !service || !joinDate) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  const exists = App.db.clients.find(c => c.email === email);
+  if (exists) {
+    alert("Client email already exists!");
+    return;
+  }
+
+  const newClient = {
+    id: Date.now(),
+    name,
+    email,
+    type,
+    service,
+    joinDate,
+    assignee,
+    health: 80
+  };
+
+  App.db.clients.push(newClient);
+  saveData("vcs_clients", App.db.clients);
+
+  showToast("Client Added");
+  pushNotification("New Client Added", `${name} added successfully`);
+
+  closeAddClientModal();
+  renderStaffClients();
+}
+
+/* =========================
+   STAFF TASKS
+========================= */
+
+function renderStaffTasks() {
+  const tasks = App.db.tasks.filter(t => {
+    if (App.state.staffName === "Vishaal") return true;
+    return t.assignedTo === App.state.staffName;
+  });
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Task Manager</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            Assign, track, and complete compliance tasks.
+          </p>
+        </div>
+
+        <button onclick="openTaskAddModal()"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg btn-pop transition-transform">
+          + Add Task
+        </button>
+      </div>
+
+      <div class="chart-box">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                <th class="py-3 px-3">Task</th>
+                <th class="py-3 px-3">Client</th>
+                <th class="py-3 px-3">Assigned</th>
+                <th class="py-3 px-3">Due</th>
+                <th class="py-3 px-3">Status</th>
+                <th class="py-3 px-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  const tbody = $("taskTableBody");
+
+  if (!tasks.length) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="6" class="text-center py-10 text-slate-400 font-bold">
+          No tasks created yet.
+        </td>
+      </tr>
+    `;
+    renderIcons();
+    return;
+  }
+
+  tbody.innerHTML = tasks.map((t) => `
+    <tr class="border-b border-slate-100 dark:border-slate-700 table-row-hover">
+      <td class="py-4 px-3 font-extrabold">${t.title}</td>
+      <td class="py-4 px-3 text-slate-500 font-bold">${t.clientName}</td>
+      <td class="py-4 px-3 font-bold">${t.assignedTo}</td>
+      <td class="py-4 px-3 font-bold text-blue-600">${t.dueDate}</td>
+      <td class="py-4 px-3 font-extrabold ${t.status === "Done" ? "text-green-600" : "text-red-600"}">
+        ${t.status}
+      </td>
+      <td class="py-4 px-3 text-right">
+        ${t.status !== "Done" ? `
+          <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl font-bold text-xs shadow-md"
+            onclick="markTaskDone(${t.id})">
+            Mark Done
+          </button>
+        ` : `
+          <span class="text-xs font-extrabold text-green-600">✔ Completed</span>
+        `}
+      </td>
+    </tr>
+  `).join("");
+
+  renderIcons();
+}
+
+function markTaskDone(taskId) {
+  const task = App.db.tasks.find(t => t.id === taskId);
+  if (!task) return;
+
+  task.status = "Done";
+  saveData("vcs_tasks", App.db.tasks);
+
+  showToast("Task Completed");
+  pushNotification("Task Completed", `${task.title} marked as Done`);
+  renderStaffTasks();
+}
+
+function openTaskAddModal() {
+  const staffOptions = Object.values(staffUsers);
+  const clientsPool = [...App.db.clients];
+
+  const modalHTML = `
+    <div id="taskModalOverlay" class="fixed inset-0 z-[120] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+      <div class="glass-panel rounded-3xl w-full max-w-lg p-8 fade-in relative border border-slate-200 dark:border-slate-700">
+
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Add New Task</h3>
+          <button onclick="closeTaskAddModal()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Task Title</label>
+            <input id="taskTitleInput" type="text"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+              placeholder="Example: PF Challan Submission">
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Client</label>
+            <select id="taskClientInput"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+              ${clientsPool.map(c => `<option value="${c.name}">${c.name}</option>`).join("")}
+            </select>
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Assign To</label>
+            <select id="taskAssignInput"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+              ${staffOptions.map(s => `<option value="${s}">${s}</option>`).join("")}
+            </select>
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Due Date</label>
+            <input id="taskDueInput" type="date"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+          </div>
+
+          <button onclick="saveNewTask()"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg mt-3 btn-pop transition-transform">
+            Save Task
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+  renderIcons();
+}
+
+function closeTaskAddModal() {
+  const modal = document.getElementById("taskModalOverlay");
+  if (modal) modal.remove();
+}
+
+function saveNewTask() {
+  const title = $("taskTitleInput").value.trim();
+  const clientName = $("taskClientInput").value;
+  const assignedTo = $("taskAssignInput").value;
+  const dueDate = $("taskDueInput").value;
+
+  if (!title || !dueDate) {
+    alert("Please enter task title and due date.");
+    return;
+  }
+
+  const newTask = {
+    id: Date.now(),
+    title,
+    clientName,
+    assignedTo,
+    dueDate,
+    status: "Pending"
+  };
+
+  App.db.tasks.push(newTask);
+  saveData("vcs_tasks", App.db.tasks);
+
+  showToast("Task Added");
+  pushNotification("New Task Added", `${title} assigned to ${assignedTo}`);
+
+  closeTaskAddModal();
+  renderStaffTasks();
+}
+
+/* =========================
+   STAFF UPLOAD TRACKER
+========================= */
+
+function renderStaffUploads() {
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Upload Tracker</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+          Tracks all uploaded compliance files.
+        </p>
+      </div>
+
+      <div class="chart-box">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                <th class="py-3 px-3">Client</th>
+                <th class="py-3 px-3">Document</th>
+                <th class="py-3 px-3">Period</th>
+                <th class="py-3 px-3">Status</th>
+              </tr>
+            </thead>
+            <tbody id="uploadTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  const tbody = $("uploadTableBody");
+  const uploadEntries = [];
+
+  Object.keys(App.db.uploads).forEach(clientId => {
+    Object.keys(App.db.uploads[clientId]).forEach(docKey => {
+      uploadEntries.push({
+        clientId,
+        docKey,
+        status: App.db.uploads[clientId][docKey].status
+      });
+    });
+  });
+
+  if (!uploadEntries.length) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="text-center py-10 text-slate-400 font-bold">
+          No uploads tracked yet.
+        </td>
+      </tr>
+    `;
+    renderIcons();
+    return;
+  }
+
+  tbody.innerHTML = uploadEntries.map(e => {
+    const client = App.db.clients.find(c => c.id == e.clientId);
+    const parsed = parseDocKey(e.docKey);
+
+    return `
+      <tr class="border-b border-slate-100 dark:border-slate-700 table-row-hover">
+        <td class="py-4 px-3 font-extrabold">${client ? client.name : "Unknown"}</td>
+        <td class="py-4 px-3 font-bold text-slate-600 dark:text-slate-200">${parsed.name}</td>
+        <td class="py-4 px-3 font-extrabold text-blue-600">${parsed.period || "-"}</td>
+        <td class="py-4 px-3 font-extrabold ${e.status === "Uploaded" ? "text-green-600" : "text-red-600"}">
+          ${e.status}
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  renderIcons();
+}
+
+/* =========================
+   CLIENT PANEL OPEN + FILTERS
+========================= */
+
+function getActionForCategory(category) {
+  if (App.state.role === "client") return "upload";
+  const staffUpload = ["registers", "returns", "vcs_activities"];
+  return staffUpload.includes(category) ? "upload" : "download";
+}
+
+function renderListItem(item, category) {
+  const action = getActionForCategory(category);
+
+  const recurring = ["registers", "returns", "vcs_activities"].includes(category);
+
+  let docKey = item;
+  let label = item;
+
+  if (recurring) {
+    docKey = makeDocKey(item);
+    label = formatDocLabel(item);
+  }
+
+  return `
+    <div class="p-3 border-b border-slate-100 dark:border-slate-700 last:border-0 flex items-center justify-between group hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+      <div class="flex items-center gap-3 cursor-pointer flex-1"
+        onclick="openDocumentModal('${docKey.replaceAll("'", "")}', '${action}')">
+
+        <div class="p-2 bg-blue-50 dark:bg-slate-700 rounded text-blue-600 group-hover:scale-110 transition-transform">
+          <i data-lucide="${action === "upload" ? "upload-cloud" : "download-cloud"}" class="w-4 h-4"></i>
+        </div>
+
+        <p class="font-extrabold text-xs text-slate-700 dark:text-slate-200 leading-snug">${label}</p>
+      </div>
+    </div>
+  `;
+}
+
+function renderAccordion(title, items, category) {
+  if (!items || !items.length) return "";
+
+  return `
+    <div class="accordion-box border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden mb-4">
+      <button onclick="toggleAccordion(this)"
+        class="w-full flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors">
+
+        <span class="font-extrabold text-sm uppercase tracking-wide">${title}</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 accordion-icon"></i>
+      </button>
+
+      <div class="accordion-content bg-white dark:bg-slate-900/50">
+        <div class="p-3">
+          ${items.map(i => renderListItem(i, category)).join("")}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function toggleAccordion(btn) {
+  btn.closest(".accordion-box").classList.toggle("accordion-open");
+}
+
+function openClientPanel(clientId) {
+  const c = App.db.clients.find(x => x.id === clientId);
+  if (!c) return;
+
+  App.state.currentClientId = c.id;
+  App.state.currentClientType = c.type;
+
+  togglePanel(true);
+
+  $("detail-name").innerHTML = `
+    <div class="p-2 bg-blue-100 dark:bg-slate-700 rounded-lg text-blue-600">
+      <i data-lucide="building-2" class="w-6 h-6"></i>
+    </div>
+    ${c.name}
+  `;
+
+  const data = App.db.compliance[c.type];
+
+  $("sidebar-content").innerHTML = `
+    <div class="bg-blue-50 dark:bg-slate-800 p-6 rounded-2xl border border-blue-100 dark:border-slate-700 shadow-sm">
+      <div class="flex justify-between mb-2">
+        <span class="text-sm font-extrabold text-blue-700 dark:text-blue-300 uppercase tracking-wide">${c.service}</span>
+        <span class="text-sm font-extrabold text-green-600">${c.health}% Score</span>
+      </div>
+
+      <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+        <div class="bg-green-500 h-2.5 rounded-full" style="width:${c.health}%"></div>
+      </div>
+
+      <p class="text-xs text-slate-500 mt-3 flex items-center gap-2 font-bold">
+        <i data-lucide="user" class="w-3 h-3"></i>
+        Assignee: ${c.assignee}
+      </p>
+      <p class="text-xs text-slate-500 mt-1 flex items-center gap-2 font-bold">
+        <i data-lucide="calendar" class="w-3 h-3"></i>
+        Joined: ${c.joinDate || "-"}
+      </p>
+    </div>
+
+    <div class="chart-box">
+      <h3 class="font-extrabold text-lg flex items-center gap-2">
+        <i data-lucide="folder-open" class="w-5 h-5 text-blue-600"></i>
+        Client Compliance Panel
+      </h3>
+
+      <div class="mt-4 space-y-3">
+        <label class="text-xs font-bold text-slate-500 uppercase">Return Type</label>
+        <select id="returnTypeSelect"
+          class="w-full bg-slate-100 dark:bg-slate-800 px-4 py-3 rounded-xl font-extrabold text-sm border border-slate-200 dark:border-slate-700">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="halfYearly">Half-Yearly</option>
+          <option value="annual">Annual</option>
+        </select>
+
+        <label class="text-xs font-bold text-slate-500 uppercase mt-2">Month</label>
+        <select id="monthSelect"
+          class="w-full bg-slate-100 dark:bg-slate-800 px-4 py-3 rounded-xl font-extrabold text-sm border border-slate-200 dark:border-slate-700">
+          ${getMonthOptions().map(m => `<option value="${m.val}">${m.label}</option>`).join("")}
+        </select>
+
+        <label class="text-xs font-bold text-slate-500 uppercase mt-2">Year</label>
+        <select id="yearSelect"
+          class="w-full bg-slate-100 dark:bg-slate-800 px-4 py-3 rounded-xl font-extrabold text-sm border border-slate-200 dark:border-slate-700">
+          ${getYearOptions().map(y => `<option value="${y}">${y}</option>`).join("")}
+        </select>
+
+        <button onclick="applyReturnTypeFilter()"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-extrabold shadow-lg btn-pop transition-transform">
+          Apply Filters
+        </button>
+      </div>
+
+      <div class="mt-5">
+        <span class="filter-badge"><i class="bi bi-calendar-event-fill"></i>
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          ${makePeriodKey()}
+        </span>
+      </div>
+
+      <div class="mt-6 space-y-2">
+        ${renderAccordion("Statutory Registers", data.registers, "registers")}
+        ${renderAccordion("Notices", data.notices, "notices")}
+        ${renderAccordion("Onboarding Forms", data.onboarding, "onboarding")}
+        ${renderAccordion("VCS Monthly Activities", data.vcs_activities, "vcs_activities")}
+
+        ${App.state.returnType === "monthly" ? renderAccordion("Monthly Returns", data.returns.monthly, "returns") : ""}
+        ${App.state.returnType === "quarterly" ? renderAccordion("Quarterly Returns", data.returns.quarterly, "returns") : ""}
+        ${App.state.returnType === "halfYearly" ? renderAccordion("Half-Yearly Returns", data.returns.halfYearly, "returns") : ""}
+        ${App.state.returnType === "annual" ? renderAccordion("Annual Returns", data.returns.annual, "returns") : ""}
+      </div>
+
+      <div class="mt-6 space-y-2">
+        <button onclick="togglePanel(false)"
+          class="w-full bg-slate-900 dark:bg-blue-600 hover:bg-black dark:hover:bg-blue-700 text-white py-3 rounded-xl font-extrabold shadow-lg btn-pop transition-transform">
+          Close Panel
+        </button>
+      </div>
+    </div>
+  `;
+
+  $("returnTypeSelect").value = App.state.returnType;
+  $("monthSelect").value = App.state.filterMonth;
+  $("yearSelect").value = App.state.filterYear;
+
+  renderIcons();
+}
+
+function applyReturnTypeFilter() {
+  App.state.returnType = $("returnTypeSelect").value;
+  App.state.filterMonth = $("monthSelect").value;
+  App.state.filterYear = $("yearSelect").value;
+
+  showToast("Filters Updated");
+  openClientPanel(App.state.currentClientId);
+}
+
+/* =========================
+   DOCUMENT MODAL + CHAT
+========================= */
+
+function openDocumentModal(docKey, action) {
+  App.state.openDocKey = docKey;
+  const parsed = parseDocKey(docKey);
+
+  $("doc-modal-title").innerText = parsed.name + (parsed.period ? ` (${parsed.period})` : "");
+  $("document-modal").classList.remove("hidden");
+
+  const clientId = App.state.currentClientId;
+  if (!App.db.uploads[clientId]) App.db.uploads[clientId] = {};
+
+  const left = $("doc-modal-left");
+
+  if (action === "upload") {
+    left.innerHTML = `
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">Action Required</span>
+        <div class="flex items-center gap-2 text-amber-600 bg-amber-50 dark:bg-amber-900/20 px-3 py-2 rounded-lg w-fit">
+          <i data-lucide="upload" class="w-4 h-4"></i>
+          <span class="text-sm font-extrabold">Upload Pending</span>
+        </div>
+      </div>
+
+      <div onclick="simulateUpload()"
+        class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex-1 flex flex-col items-center justify-center border-dashed border-2 border-slate-300 dark:border-slate-600 hover:border-blue-500 transition-colors cursor-pointer group">
+
+        <div class="p-4 bg-blue-50 dark:bg-slate-700 rounded-full text-blue-600 mb-3 group-hover:scale-110 transition-transform">
+          <i data-lucide="upload-cloud" class="w-8 h-8"></i>
+        </div>
+
+        <p class="text-sm font-extrabold">Click to Upload File</p>
+        <p class="text-xs text-slate-400 mt-1">PDF, DOCX, Images</p>
+      </div>
+    `;
+  } else {
+    left.innerHTML = `
+      <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">File Status</span>
+        <div class="flex items-center gap-2 text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg w-fit">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          <span class="text-sm font-extrabold">Ready to Download</span>
+        </div>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center justify-center">
+        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+          <div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-2xl text-green-600 mx-auto w-fit mb-4">
+            <i data-lucide="file-check" class="w-10 h-10"></i>
+          </div>
+
+          <h4 class="font-extrabold text-lg">File Available</h4>
+          <p class="text-xs text-slate-500 mt-1 mb-6">Simulated Document System</p>
+
+          <button onclick="alert('Download simulated file')"
+            class="bg-green-600 hover:bg-green-700 text-white font-extrabold py-3 px-8 rounded-xl shadow-lg flex items-center gap-2 mx-auto">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            Download Now
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  renderDocChat();
+  renderIcons();
+  try { renderDocChat(); bindDocChatControls(); } catch(e){}
+
+}
+
+function closeDocumentModal() {
+  $("document-modal").classList.add("hidden");
+}
+
+function simulateUpload() {
+  const clientId = App.state.currentClientId;
+  const docKey = App.state.openDocKey;
+
+  if (!App.db.uploads[clientId]) App.db.uploads[clientId] = {};
+
+  App.db.uploads[clientId][docKey] = {
+    status: "Uploaded",
+    time: new Date().toLocaleString()
+  };
+
+  saveData("vcs_uploads", App.db.uploads);
+
+  showToast("Uploaded Successfully");
+  pushNotification("Document Uploaded", docKey);
+}
+
+function showMessageInfo(time) {
+  alert("Message Timestamp: " + time);
+}
+
+function editMessage(clientId, docKey, index) {
+  const chats = App.db.docChat[clientId][docKey];
+  if (!chats || !chats[index]) return;
+
+  const newText = prompt("Edit Message:", chats[index].text);
+  if (newText === null) return;
+  if (!newText.trim()) return;
+
+  chats[index].text = newText.trim();
+  chats[index].edited = true;
+
+  saveData("vcs_doc_chat", App.db.docChat);
+  showToast("Message Edited");
+  renderDocChat();
+}
+
+function renderDocChat() {
+  const list = $("doc-chat-list");
+  const clientId = App.state.currentClientId;
+  const docKey = App.state.openDocKey;
+
+  if (!App.db.docChat[clientId]) App.db.docChat[clientId] = {};
+  if (!App.db.docChat[clientId][docKey]) App.db.docChat[clientId][docKey] = [];
+
+  const chats = App.db.docChat[clientId][docKey];
+
+  if (!chats.length) {
+    list.innerHTML = `
+      <div class="flex flex-col items-center justify-center h-full text-slate-400">
+        <i data-lucide="message-square-dashed" class="w-8 h-8 mb-2 opacity-50"></i>
+        <p class="text-sm font-bold">No remarks for this document yet.</p>
+      </div>
+    `;
+    renderIcons();
+    return;
+  }
+
+  list.innerHTML = chats.map((m, idx) => `
+    <div class="p-4 rounded-2xl ${m.role === App.state.role ? "bg-blue-100 dark:bg-blue-900/40" : "bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600"}">
+      
+      <div class="flex justify-between items-start gap-3">
+        <p class="font-bold text-sm flex-1">
+          ${m.text}
+          ${m.edited ? `<span class="text-[10px] font-extrabold text-purple-600 ml-2">(Edited)</span>` : ""}
+        </p>
+
+        <div class="flex gap-2">
+          <button onclick="showMessageInfo('${m.time}')"
+            class="text-slate-400 hover:text-blue-600">
+            <i data-lucide="info" class="w-4 h-4"></i>
+          </button>
+
+          <button onclick="editMessage(${clientId}, '${docKey.replaceAll("'", "")}', ${idx})"
+            class="text-slate-400 hover:text-green-600">
+            <i data-lucide="pencil" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-[10px] text-slate-400 font-bold mt-2">${m.time}</p>
+    </div>
+  `).join("");
+
+  setTimeout(() => list.scrollTop = list.scrollHeight, 50);
+  renderIcons();
+}
+
+function sendDocRemark() {
+  const input = $("doc-chat-input");
+  const text = input.value.trim();
+  if (!text) return;
+
+  const clientId = App.state.currentClientId;
+  const docKey = App.state.openDocKey;
+
+  if (!App.db.docChat[clientId]) App.db.docChat[clientId] = {};
+  if (!App.db.docChat[clientId][docKey]) App.db.docChat[clientId][docKey] = [];
+
+  App.db.docChat[clientId][docKey].push({
+    role: App.state.role,
+    text,
+    time: new Date().toLocaleString(),
+    edited: false
+  });
+
+  saveData("vcs_doc_chat", App.db.docChat);
+
+  input.value = "";
+  showToast("Remark Sent");
+  pushNotification("New Document Remark", docKey);
+
+  renderDocChat();
+}
+
+/* =========================
+   SEARCH SYSTEM
+========================= */
+
+function renderSearchResults(query) {
+  query = query.trim().toLowerCase();
+
+  const dropdown = $("search-dropdown");
+  const list = $("search-results");
+
+  if (!query) {
+    dropdown.classList.add("hidden");
+    return;
+  }
+
+  if (App.state.role === "staff") {
+    const pool = getStaffClientsPool();
+    const matches = pool.filter(c => c.name.toLowerCase().includes(query) || c.service.toLowerCase().includes(query));
+
+    if (!matches.length) {
+      dropdown.classList.add("hidden");
+      return;
+    }
+
+    dropdown.classList.remove("hidden");
+
+    list.innerHTML = matches.map(c => `
+      <div onclick="openClientPanel(${c.id})"
+        class="p-4 hover:bg-blue-50 dark:hover:bg-slate-700 cursor-pointer flex justify-between border-b border-slate-100 dark:border-slate-700 last:border-0 items-center transition-colors">
+        <div>
+          <p class="text-sm font-extrabold">${c.name}</p>
+          <p class="text-[11px] text-slate-500 font-bold">${c.service}</p>
+        </div>
+        <span class="text-[10px] font-extrabold text-blue-600 bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded uppercase">${c.type}</span>
+      </div>
+    `).join("");
+
+  } else {
+    dropdown.classList.add("hidden");
+  }
+
+  renderIcons();
+}
+
+/* =========================
+   CLIENT PORTAL + MONTH YEAR FILTER
+========================= */
+
+function renderClientPortal(client) {
+  $("sidebar").innerHTML = `
+    <div class="flex items-center gap-3 mb-8">
+      <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg">
+        <i data-lucide="user" class="w-6 h-6"></i>
+      </div>
+      <div>
+        <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">Client Portal</h3>
+        <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+          Access Panel
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 mb-6">
+      <p class="text-xs font-bold uppercase text-slate-500">Filters</p>
+
+      <label class="text-[11px] font-extrabold text-slate-500 mt-3 block">Return Type</label>
+      <select id="clientReturnType"
+        class="w-full mt-2 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl font-extrabold text-sm border border-slate-200 dark:border-slate-600">
+        <option value="monthly">Monthly</option>
+        <option value="quarterly">Quarterly</option>
+        <option value="halfYearly">Half-Yearly</option>
+        <option value="annual">Annual</option>
+      </select>
+
+      <div class="grid grid-cols-2 gap-2 mt-3">
+        <div>
+          <label class="text-[11px] font-extrabold text-slate-500 block">Month</label>
+          <select id="clientMonthSelect"
+            class="w-full mt-2 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl font-extrabold text-sm border border-slate-200 dark:border-slate-600">
+            ${getMonthOptions().map(m => `<option value="${m.val}">${m.label}</option>`).join("")}
+          </select>
+        </div>
+
+        <div>
+          <label class="text-[11px] font-extrabold text-slate-500 block">Year</label>
+          <select id="clientYearSelect"
+            class="w-full mt-2 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl font-extrabold text-sm border border-slate-200 dark:border-slate-600">
+            ${getYearOptions().map(y => `<option value="${y}">${y}</option>`).join("")}
+          </select>
+        </div>
+      </div>
+
+      <button onclick="applyClientReturnFilter()"
+        class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-extrabold shadow-lg btn-pop transition-transform">
+        Apply
+      </button>
+
+      <div class="text-center mt-3">
+        <span class="filter-badge">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          ${makePeriodKey()}
+        </span>
+      </div>
+    </div>
+
+    <nav class="space-y-2 flex-1">
+      <button onclick="renderClientOverviewPage()" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all">
+        <i data-lucide="layout-dashboard" class="w-5 h-5 text-blue-600"></i>
+        Overview
+      </button>
+
+      <button onclick="renderClientAnalyticsPage()" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all">
+        <i data-lucide="bar-chart-3" class="w-5 h-5 text-blue-600"></i>
+        Analytics
+      </button>
+
+      <button onclick="renderClientDocuments()" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm hover:bg-blue-50 dark:hover:bg-slate-800 transition-all active">
+        <i data-lucide="folder-open" class="w-5 h-5 text-blue-600"></i>
+        Documents
+      </button>
+    </nav>
+  `;
+
+  $("clientReturnType").value = App.state.returnType;
+  $("clientMonthSelect").value = App.state.filterMonth;
+  $("clientYearSelect").value = App.state.filterYear;
+
+  renderClientOverviewPage();
+  renderIcons();
+}
+
+function applyClientReturnFilter() {
+  const type = $("clientReturnType") ? $("clientReturnType").value : "monthly";
+  const month = $("clientMonthSelect") ? $("clientMonthSelect").value : App.state.filterMonth;
+  const year = $("clientYearSelect") ? $("clientYearSelect").value : App.state.filterYear;
+
+  App.state.returnType = type;
+  App.state.filterMonth = month;
+  App.state.filterYear = year;
+
+  if (App.state.role === "client") {
+    if (App.state.clientActivePage === "analytics") renderClientAnalyticsPage();
+    else if (App.state.clientActivePage === "overview") renderClientOverviewPage();
+    else renderClientOverviewPage();
+  }
+
+  showToast("Filter applied");
+}
+
+
+function renderClientOverviewPage() {
+  const client = App.db.clients.find(c => c.id === App.state.currentClientId);
+  if (!client) return;
+
+  App.state.clientActivePage = "overview";
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div class="flex items-start justify-between gap-6 flex-wrap">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Client Overview</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
+            Welcome back, <b>${client.name}</b>. Here is your current compliance summary.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+          <p class="text-xs font-bold text-slate-500 uppercase">Act Type</p>
+          <p class="text-lg font-extrabold text-blue-600 mt-1">${client.type.toUpperCase()}</p>
+        </div>
+      </div>
+
+      ${renderClientDeadlinesBox(client)}
+
+      ${renderClientAnalyticsBox(client)}
+
+      <div class="chart-box">
+        <h3 class="font-extrabold text-lg flex items-center gap-2">
+          <i data-lucide="folder-open" class="w-5 h-5 text-blue-600"></i>
+          Compliance Panel
+        </h3>
+
+        <p class="text-xs text-slate-500 font-bold mt-2">
+          Upload your documents and track compliance tasks.
+        </p>
+
+        <button onclick="renderClientDocuments()"
+          class="mt-5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-6 py-3 rounded-2xl shadow-lg">
+          Open Documents
+        </button>
+      </div>
+
+    </div>
+  `;
+
+  renderIcons();
+}
+
+function renderClientAnalyticsPage() {
+  const client = App.db.clients.find(c => c.id === App.state.currentClientId);
+  if (!client) return;
+
+  App.state.clientActivePage = "analytics";
+
+  const months = ["Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar"];
+
+  // Calculate uploaded/pending for current filters
+  const compliance = App.db.compliance[client.type];
+  const uploadsStore = (App.db.uploads && App.db.uploads[client.id]) ? App.db.uploads[client.id] : {};
+
+  const expectedDocs = [
+    ...compliance.registers,
+    ...compliance.notices,
+    ...compliance.onboarding,
+    ...compliance.vcs_activities
+  ];
+
+  if (App.state.returnType === "monthly") expectedDocs.push(...compliance.returns.monthly);
+  if (App.state.returnType === "quarterly") expectedDocs.push(...compliance.returns.quarterly);
+  if (App.state.returnType === "halfYearly") expectedDocs.push(...compliance.returns.halfYearly);
+  if (App.state.returnType === "annual") expectedDocs.push(...compliance.returns.annual);
+
+  let uploaded = 0;
+  let pending = 0;
+  expectedDocs.forEach(doc => {
+    const key = makeDocKey(doc);
+    if (uploadsStore[key] && uploadsStore[key].fileName) uploaded++;
+    else pending++;
+  });
+
+  const total = expectedDocs.length || 1;
+  const completionPct = Math.round((uploaded / total) * 100);
+
+  // Demo curve based on completion % (looks like staff analytics)
+  const base = Math.max(20, completionPct - 18);
+  const curve = months.map((m, i) => {
+    const wave = Math.sin(i / 2.2) * 8;
+    const drift = i * 2.2;
+    const rand = Math.floor(Math.random() * 5);
+    return Math.max(0, Math.min(100, Math.round(base + wave + drift + rand)));
+  });
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-10 pb-12 fade-in">
+
+      <div class="flex items-start justify-between flex-wrap gap-6">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Analytics</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
+            Graphical compliance analytics for your account.
+          </p>
+        </div>
+
+        <div class="text-right">
+          <p class="text-xs font-extrabold text-slate-500 uppercase tracking-widest">Completion</p>
+          <p class="text-4xl font-extrabold text-blue-600">${completionPct}%</p>
+        </div>
+      </div>
+
+      ${renderClientDeadlinesBox(client)}
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-xl">
+          <p class="text-xs font-extrabold text-slate-500 uppercase tracking-widest">Uploaded</p>
+          <p class="text-5xl font-extrabold text-green-600 mt-3">${uploaded}</p>
+          <p class="text-xs font-bold text-slate-500 mt-2">Documents uploaded</p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-xl">
+          <p class="text-xs font-extrabold text-slate-500 uppercase tracking-widest">Pending</p>
+          <p class="text-5xl font-extrabold text-red-600 mt-3">${pending}</p>
+          <p class="text-xs font-bold text-slate-500 mt-2">Documents pending</p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-xl">
+          <p class="text-xs font-extrabold text-slate-500 uppercase tracking-widest">Period</p>
+          <p class="text-3xl font-extrabold text-blue-600 mt-4">${makePeriodKey()}</p>
+          <p class="text-xs font-bold text-slate-500 mt-2">Based on filters</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-extrabold text-slate-900 dark:text-white">Upload Status</h3>
+            <span class="text-xs font-bold text-slate-500">${makePeriodKey()}</span>
+          </div>
+          <div class="h-[280px]">
+            <canvas id="clientStatusChart"></canvas>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-extrabold text-slate-900 dark:text-white">Compliance Trend</h3>
+            <span class="text-xs font-bold text-slate-500">FY (Apr - Mar)</span>
+          </div>
+          <div class="h-[280px]">
+            <canvas id="clientTrendChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-extrabold text-slate-900 dark:text-white">Detailed Completion</h3>
+          <span class="text-xs font-bold text-slate-500">${uploaded}/${total} uploaded</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${completionPct}%"></div>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  renderIcons();
+
+  setTimeout(() => {
+    try {
+      if (typeof Chart === "undefined") return;
+
+      const ctx1 = document.getElementById("clientStatusChart");
+      const ctx2 = document.getElementById("clientTrendChart");
+
+      if (!ctx1 || !ctx2) return;
+
+      if (window.__clientStatusChart) window.__clientStatusChart.destroy();
+      if (window.__clientTrendChart) window.__clientTrendChart.destroy();
+
+      window.__clientStatusChart = new Chart(ctx1, {
+        type: "doughnut",
+        data: {
+          labels: ["Uploaded", "Pending"],
+          datasets: [{
+            data: [uploaded, pending],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: "72%",
+          plugins: {
+            legend: { position: "bottom" }
+          }
+        }
+      });
+
+      window.__clientTrendChart = new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: months,
+          datasets: [{
+            label: "Completion %",
+            data: curve,
+            tension: 0.35,
+            borderWidth: 3,
+            pointRadius: 4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: {
+              min: 0,
+              max: 100,
+              ticks: { callback: (v) => v + "%" }
+            }
+          }
+        }
+      });
+
+    } catch(e) {
+      console.log("Chart render failed:", e);
+    }
+  }, 120);
+}
+
+function renderClientDocuments() {
+  const client = App.db.clients.find(c => c.email === App.state.email);
+  if (!client) return;
+
+  const data = App.db.compliance[client.type];
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">
+          Welcome, ${client.name}
+        </h2>
+
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mt-2">
+          Act Type: <b class="text-blue-600">${client.type.toUpperCase()}</b> |
+          Service: <b>${client.service}</b> |
+          Handled By: <b class="text-green-600">${client.assignee}</b>
+        </p>
+
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
+          Upload your compliance documents based on selected filters.
+        </p>
+      </div>
+
+      ${renderClientDeadlinesBox(client)}
+
+      ${renderClientAnalyticsBox(client)}
+
+      <div class="chart-box">
+        <div class="mb-4">
+          <span class="filter-badge">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            ${makePeriodKey()}
+          </span>
+        </div>
+
+        <div class="space-y-2">
+          ${renderAccordion("Statutory Registers", data.registers, "registers")}
+          ${renderAccordion("Notices", data.notices, "notices")}
+          ${renderAccordion("Onboarding Forms", data.onboarding, "onboarding")}
+          ${renderAccordion("VCS Monthly Activities", data.vcs_activities, "vcs_activities")}
+
+          ${App.state.returnType === "monthly" ? renderAccordion("Monthly Returns", data.returns.monthly, "returns") : ""}
+          ${App.state.returnType === "quarterly" ? renderAccordion("Quarterly Returns", data.returns.quarterly, "returns") : ""}
+          ${App.state.returnType === "halfYearly" ? renderAccordion("Half-Yearly Returns", data.returns.halfYearly, "returns") : ""}
+          ${App.state.returnType === "annual" ? renderAccordion("Annual Returns", data.returns.annual, "returns") : ""}
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  renderIcons();
+}
+
+/* =========================
+   LOGOUT + RESET
+========================= */
+
+function logout() {
+  location.reload();
+}
+
+function resetSystem() {
+  if (!confirm("Reset all system data?")) return;
+  localStorage.clear();
+  location.reload();
+}
+
+/* =========================
+   LOGIN SYSTEM FIXED
+========================= */
+
+function handleLogin() {
+  const email = $("email").value.trim();
+
+  if (staffUsers[email]) {
+    App.state.role = "staff";
+    App.state.staffName = staffUsers[email];
+    App.state.email = email;
+
+    $("auth-view").classList.add("hidden");
+    $("dashboard-container").classList.remove("hidden");
+
+    $("search-container").classList.remove("hidden");
+
+    $("role-badge").innerHTML = `<i data-lucide="user-cog" class="w-3 h-3"></i> STAFF CONSOLE`;
+    $("menu-user-name").innerText = App.state.staffName;
+    $("menu-user-role").innerText = "Staff Access";
+
+    renderStaffSidebar();
+    App.state.activePage = "staff_overview";
+    setActiveSidebar("staff_overview");
+    renderStaffOverview();
+
+    pushNotification("Login Successful", `Staff login: ${email}`);
+    renderNotifications();
+    renderIcons();
+    return;
+  }
+
+  const client = App.db.clients.find(c => c.email === email);
+
+  if (!client) {
+    alert("Access Denied: Email not recognized.");
+    return;
+  }
+
+  App.state.role = "client";
+  App.state.email = email;
+  App.state.currentClientId = client.id;
+  App.state.currentClientType = client.type;
+
+  $("auth-view").classList.add("hidden");
+  $("dashboard-container").classList.remove("hidden");
+  $("search-container").classList.remove("hidden");
+
+  $("role-badge").innerHTML = `<i data-lucide="user" class="w-3 h-3"></i> CLIENT PORTAL`;
+  $("menu-user-name").innerText = client.name;
+  $("menu-user-role").innerText = "Client Access";
+
+  renderClientPortal(client);
+
+  pushNotification("Login Successful", `Client login: ${email}`);
+  renderNotifications();
+  renderIcons();
+}
+
+/* =========================
+   INIT SYSTEM
+========================= */
+
+function init() {
+  
+/* =========================================================
+   DEADLINE CALENDAR + REMINDERS (DEMO MODE, FIREBASE READY)
+   - Stored in localStorage now
+   - Structure matches future Firebase collections
+========================================================= */
+
+App.db.reminders = loadData("vcs_reminders", []); 
+App.db.deadlineDone = loadData("vcs_deadline_done", {}); 
+
+function saveReminders() {
+  saveData("vcs_reminders", App.db.reminders);
+}
+
+function saveDeadlineDone() {
+  saveData("vcs_deadline_done", App.db.deadlineDone);
+}
+
+function formatDDMMYYYY(dateObj) {
+  const dd = String(dateObj.getDate()).padStart(2, "0");
+  const mm = String(dateObj.getMonth() + 1).padStart(2, "0");
+  const yyyy = dateObj.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+function formatTimeHHMM(dateObj) {
+  const hh = String(dateObj.getHours()).padStart(2, "0");
+  const mi = String(dateObj.getMinutes()).padStart(2, "0");
+  return `${hh}:${mi}`;
+}
+
+function getDaysDiff(dateStrISO) {
+  const now = new Date();
+  const d = new Date(dateStrISO);
+  const diffMs = d.setHours(0,0,0,0) - now.setHours(0,0,0,0);
+  return Math.round(diffMs / (1000 * 60 * 60 * 24));
+}
+
+function getDeadlineTemplateByType(clientType) {
+  // Based on your compliance model
+  const baseMonthly = [
+    { title: "PF Filing", day: 15, category: "Monthly" },
+    { title: "ESI Filing", day: 15, category: "Monthly" },
+    { title: "PT Filing", day: 20, category: "Monthly" }
+  ];
+
+  const quarterly = [
+    { title: "Employment Exchange Return (ER-1)", monthList: [6, 9, 12, 3], day: 10, category: "Quarterly" }
+  ];
+
+  const halfYearly = [
+    { title: "Half Yearly Return (Form 21)", monthList: [7, 1], day: 15, category: "Half-Yearly" }
+  ];
+
+  const annual = [
+    { title: "Annual Return Submission", monthList: [1], day: 31, category: "Annual" }
+  ];
+
+  // You can add type-specific deadlines here later
+  return { baseMonthly, quarterly, halfYearly, annual };
+}
+
+function getSelectedClientForCalendarScope() {
+  if (App.state.role === "client") {
+    return App.db.clients.find(c => c.id === App.state.currentClientId);
+  }
+  return null;
+}
+
+function getCalendarScopeClients() {
+  // Staff sees assigned clients, client sees self
+  if (App.state.role === "client") {
+    const c = getSelectedClientForCalendarScope();
+    return c ? [c] : [];
+  }
+
+  if (App.state.role === "staff") {
+    if (App.state.staffName === "Vishaal") return [...App.db.clients];
+    return App.db.clients.filter(c => c.assignee === App.state.staffName);
+  }
+
+  return [];
+}
+
+function buildDeadlinesForMonth(year, monthIndex1to12) {
+  const clients = getCalendarScopeClients();
+  const list = [];
+
+  clients.forEach(client => {
+    const tpl = getDeadlineTemplateByType(client.type);
+
+    // Monthly deadlines
+    tpl.baseMonthly.forEach(d => {
+      const dt = new Date(year, monthIndex1to12 - 1, d.day);
+      list.push({
+        id: `${client.id}_${year}_${monthIndex1to12}_${d.title}`,
+        clientId: client.id,
+        clientName: client.name,
+        title: d.title,
+        category: d.category,
+        dateISO: dt.toISOString().slice(0,10)
+      });
+    });
+
+    // Quarterly deadlines
+    tpl.quarterly.forEach(q => {
+      if (q.monthList.includes(monthIndex1to12)) {
+        const dt = new Date(year, monthIndex1to12 - 1, q.day);
+        list.push({
+          id: `${client.id}_${year}_${monthIndex1to12}_${q.title}`,
+          clientId: client.id,
+          clientName: client.name,
+          title: q.title,
+          category: q.category,
+          dateISO: dt.toISOString().slice(0,10)
+        });
+      }
+    });
+
+    // Half-yearly
+    tpl.halfYearly.forEach(h => {
+      if (h.monthList.includes(monthIndex1to12)) {
+        const dt = new Date(year, monthIndex1to12 - 1, h.day);
+        list.push({
+          id: `${client.id}_${year}_${monthIndex1to12}_${h.title}`,
+          clientId: client.id,
+          clientName: client.name,
+          title: h.title,
+          category: h.category,
+          dateISO: dt.toISOString().slice(0,10)
+        });
+      }
+    });
+
+    // Annual
+    tpl.annual.forEach(a => {
+      if (a.monthList.includes(monthIndex1to12)) {
+        const dt = new Date(year, monthIndex1to12 - 1, a.day);
+        list.push({
+          id: `${client.id}_${year}_${monthIndex1to12}_${a.title}`,
+          clientId: client.id,
+          clientName: client.name,
+          title: a.title,
+          category: a.category,
+          dateISO: dt.toISOString().slice(0,10)
+        });
+      }
+    });
+
+  });
+
+  return list.sort((a,b) => a.dateISO.localeCompare(b.dateISO));
+}
+
+function isDeadlineDone(deadlineId) {
+  return !!App.db.deadlineDone[deadlineId];
+}
+
+function toggleDeadlineDone(deadlineId) {
+  App.db.deadlineDone[deadlineId] = !App.db.deadlineDone[deadlineId];
+  saveDeadlineDone();
+  showToast(App.db.deadlineDone[deadlineId] ? "Marked as Completed" : "Marked as Pending");
+}
+
+function openReminderModal(prefill) {
+  const existing = document.getElementById("reminderModalOverlay");
+  if (existing) existing.remove();
+
+  const now = new Date();
+  const defaultDate = prefill?.dateISO || now.toISOString().slice(0,10);
+  const defaultTime = prefill?.time || "10:00";
+  const defaultTitle = prefill?.title || "";
+
+  const modal = document.createElement("div");
+  modal.id = "reminderModalOverlay";
+  modal.className = "fixed inset-0 z-[130] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4";
+  modal.innerHTML = `
+    <div class="glass-panel rounded-3xl w-full max-w-lg p-8 fade-in relative border border-slate-200 dark:border-slate-700">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Add Reminder</h3>
+        <button id="remCloseBtn" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-bold text-slate-500 uppercase">Title</label>
+          <input id="remTitle" type="text" value="${defaultTitle}"
+            class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+            placeholder="Example: Submit PF Challan">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Date</label>
+            <input id="remDate" type="date" value="${defaultDate}"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase">Time</label>
+            <input id="remTime" type="time" value="${defaultTime}"
+              class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold text-slate-500 uppercase">Client (optional)</label>
+          <select id="remClient"
+            class="w-full mt-1 bg-slate-100 dark:bg-slate-700 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 dark:text-white">
+            <option value="">General</option>
+            ${getCalendarScopeClients().map(c => `<option value="${c.id}">${c.name}</option>`).join("")}
+          </select>
+        </div>
+
+        <button id="remSaveBtn"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg mt-3 btn-pop transition-transform">
+          Save Reminder
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById("remCloseBtn").onclick = () => modal.remove();
+  document.getElementById("remSaveBtn").onclick = () => {
+    const title = document.getElementById("remTitle").value.trim();
+    const date = document.getElementById("remDate").value;
+    const time = document.getElementById("remTime").value;
+    const clientId = document.getElementById("remClient").value;
+
+    if (!title || !date || !time) {
+      alert("Please fill title, date and time.");
+      return;
+    }
+
+    App.db.reminders.unshift({
+      id: Date.now(),
+      title,
+      date,
+      time,
+      clientId: clientId ? parseInt(clientId) : null,
+      done: false,
+      createdAt: new Date().toISOString()
+    });
+
+    saveReminders();
+    showToast("Reminder Saved");
+    pushNotification("Reminder Added", `${title} on ${date} ${time}`);
+    modal.remove();
+
+    if (App.state.activePage === "staff_reminders" || App.state.activePage === "client_reminders") {
+      renderRemindersPage();
+    }
+  };
+}
+
+function renderCalendarPage() {
+  const now = new Date();
+  const year = parseInt(App.state.filterYear || now.getFullYear());
+  const month = parseInt(App.state.filterMonth || (now.getMonth() + 1).toString().padStart(2, "0"));
+
+  const deadlines = buildDeadlinesForMonth(year, month);
+
+  const monthLabel = getMonthOptions().find(m => m.val === String(month).padStart(2,"0"))?.label || "Month";
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Deadline Calendar</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            Track PF / ESI / PT and compliance return deadlines.
+          </p>
+        </div>
+
+        <button onclick="openReminderModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg btn-pop transition-transform">
+          + Add Reminder
+        </button>
+      </div>
+
+      <div class="chart-box">
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <div class="flex items-center gap-3">
+            <i class="bi bi-calendar-event-fill text-blue-600 text-[22px]"></i>
+            <div>
+              <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Selected Month</p>
+              <p class="text-lg font-extrabold text-slate-900 dark:text-white">${monthLabel} ${year}</p>
+            </div>
+          </div>
+
+          <div class="flex gap-2 flex-wrap">
+            <select id="calMonthSelect" class="px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold text-xs">
+              ${getMonthOptions().map(m => `<option value="${m.val}">${m.label}</option>`).join("")}
+            </select>
+
+            <select id="calYearSelect" class="px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold text-xs">
+              ${getYearOptions().map(y => `<option value="${y}">${y}</option>`).join("")}
+            </select>
+
+            <span class="filter-badge">
+              <i class="bi bi-calendar2-week-fill"></i>
+              ${makePeriodKey()}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3 class="font-extrabold text-lg flex items-center gap-2">
+          <i class="bi bi-flag-fill text-red-600"></i>
+          Deadlines List
+        </h3>
+
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                <th class="py-3 px-3">Date</th>
+                <th class="py-3 px-3">Deadline</th>
+                <th class="py-3 px-3">Client</th>
+                <th class="py-3 px-3">Category</th>
+                <th class="py-3 px-3">Status</th>
+                <th class="py-3 px-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="deadlineTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  const body = document.getElementById("deadlineTableBody");
+
+  if (!deadlines.length) {
+    body.innerHTML = `
+      <tr>
+        <td colspan="6" class="py-10 text-center text-slate-400 font-bold">No deadlines found.</td>
+      </tr>
+    `;
+  } else {
+    body.innerHTML = deadlines.map(d => {
+      const days = getDaysDiff(d.dateISO);
+      const done = isDeadlineDone(d.id);
+
+      let statusLabel = "Upcoming";
+      let statusColor = "text-blue-600";
+      if (done) {
+        statusLabel = "Completed";
+        statusColor = "text-green-600";
+      } else if (days < 0) {
+        statusLabel = "Overdue";
+        statusColor = "text-red-600";
+      } else if (days <= 3) {
+        statusLabel = "Due Soon";
+        statusColor = "text-amber-600";
+      }
+
+      return `
+        <tr class="border-b border-slate-100 dark:border-slate-700 table-row-hover">
+          <td class="py-4 px-3 font-extrabold text-purple-600">${d.dateISO.split("-").reverse().join("/")}</td>
+          <td class="py-4 px-3 font-extrabold">${d.title}</td>
+          <td class="py-4 px-3 font-bold text-slate-600 dark:text-slate-200">${d.clientName}</td>
+          <td class="py-4 px-3 font-extrabold text-slate-500">${d.category}</td>
+          <td class="py-4 px-3 font-extrabold ${statusColor}">${statusLabel}</td>
+          <td class="py-4 px-3 text-right space-x-2">
+            <button class="bg-slate-900 dark:bg-slate-700 text-white px-3 py-2 rounded-xl font-bold text-xs"
+              onclick="openReminderModal({title:'${d.title.replace(/'/g,"\\'")}', dateISO:'${d.dateISO}', time:'10:00'})">
+              Remind
+            </button>
+            <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-xl font-bold text-xs"
+              onclick="toggleDeadlineDone('${d.id}'); renderCalendarPage();">
+              ${done ? "Undo" : "Done"}
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join("");
+  }
+
+  // Bind selectors
+  const mSel = document.getElementById("calMonthSelect");
+  const ySel = document.getElementById("calYearSelect");
+
+  mSel.value = String(month).padStart(2,"0");
+  ySel.value = String(year);
+
+  mSel.onchange = () => {
+    App.state.filterMonth = mSel.value;
+    renderCalendarPage();
+  };
+
+  ySel.onchange = () => {
+    App.state.filterYear = ySel.value;
+    renderCalendarPage();
+  };
+
+  renderIcons();
+}
+
+function renderRemindersPage() {
+  const scopeClients = getCalendarScopeClients();
+
+  $("main-content").innerHTML = `
+    <div class="max-w-[1500px] mx-auto space-y-8 pb-12 fade-in">
+
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Reminders</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            Create reminders for deadlines, uploads, and compliance tasks.
+          </p>
+        </div>
+
+        <button onclick="openReminderModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg btn-pop transition-transform">
+          + Add Reminder
+        </button>
+      </div>
+
+      <div class="chart-box">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs uppercase tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                <th class="py-3 px-3">Reminder</th>
+                <th class="py-3 px-3">Client</th>
+                <th class="py-3 px-3">Date</th>
+                <th class="py-3 px-3">Time</th>
+                <th class="py-3 px-3">Status</th>
+                <th class="py-3 px-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="remindersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  const body = document.getElementById("remindersTableBody");
+
+  if (!App.db.reminders.length) {
+    body.innerHTML = `
+      <tr>
+        <td colspan="6" class="py-10 text-center text-slate-400 font-bold">No reminders created yet.</td>
+      </tr>
+    `;
+    return;
+  }
+
+  body.innerHTML = App.db.reminders.map(r => {
+    const client = r.clientId ? scopeClients.find(c => c.id === r.clientId) : null;
+    const days = getDaysDiff(r.date);
+    let status = r.done ? "Done" : "Pending";
+    let color = r.done ? "text-green-600" : (days < 0 ? "text-red-600" : (days <= 2 ? "text-amber-600" : "text-blue-600"));
+
+    return `
+      <tr class="border-b border-slate-100 dark:border-slate-700 table-row-hover">
+        <td class="py-4 px-3 font-extrabold">${r.title}</td>
+        <td class="py-4 px-3 font-bold text-slate-600 dark:text-slate-200">${client ? client.name : "General"}</td>
+        <td class="py-4 px-3 font-extrabold text-purple-600">${r.date.split("-").reverse().join("/")}</td>
+        <td class="py-4 px-3 font-extrabold text-slate-700 dark:text-white">${r.time}</td>
+        <td class="py-4 px-3 font-extrabold ${color}">${status}</td>
+        <td class="py-4 px-3 text-right space-x-2">
+          <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-xl font-bold text-xs"
+            onclick="rMarkDone(${r.id})">
+            ${r.done ? "Undo" : "Done"}
+          </button>
+          <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-xl font-bold text-xs"
+            onclick="rDelete(${r.id})">
+            Delete
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function rMarkDone(id) {
+  const r = App.db.reminders.find(x => x.id === id);
+  if (!r) return;
+  r.done = !r.done;
+  saveReminders();
+  showToast(r.done ? "Reminder Completed" : "Reminder Reopened");
+  renderRemindersPage();
+  renderNotifications();
+}
+
+function rDelete(id) {
+  App.db.reminders = App.db.reminders.filter(x => x.id !== id);
+  saveReminders();
+  showToast("Reminder Deleted");
+  renderRemindersPage();
+  renderNotifications();
+}
+
+function pushAutoReminderNotifications() {
+  // Adds a notification for reminders due soon (within 1 day) - demo
+  const soon = App.db.reminders.filter(r => !r.done && getDaysDiff(r.date) <= 1 && getDaysDiff(r.date) >= 0);
+  if (!soon.length) return;
+
+  // Do not spam - only once per session
+  if (sessionStorage.getItem("vcs_auto_reminders_pushed")) return;
+  sessionStorage.setItem("vcs_auto_reminders_pushed", "1");
+
+  soon.slice(0, 3).forEach(r => {
+    pushNotification("Reminder Due Soon", `${r.title} at ${r.time} (${r.date.split("-").reverse().join("/")})`);
+  });
+}
+
+/* Hook calendar pages into sidebar navigation */
+(function hookCalendarNav(){
+  const oldBind = bindSidebarNavigation;
+  bindSidebarNavigation = function() {
+    oldBind();
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const page = btn.dataset.page;
+        if (page === "staff_calendar" || page === "client_calendar") {
+          App.state.activePage = page;
+          setActiveSidebar(page);
+          renderCalendarPage();
+        }
+        if (page === "staff_reminders" || page === "client_reminders") {
+          App.state.activePage = page;
+          setActiveSidebar(page);
+          renderRemindersPage();
+        }
+      });
+    });
+  };
+})();
+
+loadTheme();
+  renderNotifications();
+  renderIcons();
+
+  $("loginBtn").onclick = handleLogin;
+  $("resetBtn").onclick = resetSystem;
+
+  $("themeBtn").onclick = toggleTheme;
+
+$("hamburgerBtn").onclick = () => toggleMobileSidebar();
+$("mobileSidebarBackdrop").onclick = () => toggleMobileSidebar(true);
+
+
+  $("notifBtn").onclick = () => $("notif-dropdown").classList.toggle("hidden");
+  $("notifCloseBtn").onclick = () => $("notif-dropdown").classList.add("hidden");
+
+  $("userBtn").onclick = () => $("user-dropdown").classList.toggle("hidden");
+  $("userCloseBtn").onclick = () => $("user-dropdown").classList.add("hidden");
+
+  $("logoutBtn").onclick = logout;
+
+  if ($("staffInfoBtn")) {
+    $("staffInfoBtn").onclick = () => {
+      alert(
+        "Staff Info:\n" +
+        "Name: " + (App.state.staffName || "N/A") + "\n" +
+        "Email: " + (App.state.email || "N/A")
+      );
+    };
+  }
+
+  $("panelCloseBtn").onclick = () => togglePanel(false);
+  $("panel-backdrop").onclick = () => togglePanel(false);
+
+  $("docCloseBtn").onclick = closeDocumentModal;
+  if($("docBackBtn")) $("docBackBtn").onclick = closeDocumentModal;
+  $("docSendBtn").onclick = sendDocRemark;
+
+  $("searchBtn").onclick = () => renderSearchResults($("globalSearchInput").value);
+
+  $("globalSearchInput").addEventListener("input", () => {
+    renderSearchResults($("globalSearchInput").value);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("#notifBtn") && !e.target.closest("#notif-dropdown")) {
+      $("notif-dropdown").classList.add("hidden");
+    }
+    if (!e.target.closest("#userBtn") && !e.target.closest("#user-dropdown")) {
+      $("user-dropdown").classList.add("hidden");
+    }
+    if (!e.target.closest("#search-container")) {
+      $("search-dropdown").classList.add("hidden");
+    }
+  });
+}
+
+init();
+
+window.addEventListener('load', ()=>{ try{ lucide.createIcons(); }catch(e){} });
+
+/* =========================
+   CHAT ENGINE (DOC REMARKS)
+========================= */
+
+function formatDateTime(ts) {
+  const d = new Date(ts);
+  const dd = String(d.getDate()).padStart(2, "0");
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const yyyy = d.getFullYear();
+  let hh = d.getHours();
+  const min = String(d.getMinutes()).padStart(2, "0");
+  const ampm = hh >= 12 ? "PM" : "AM";
+  hh = hh % 12; if (hh === 0) hh = 12;
+  const hhs = String(hh).padStart(2, "0");
+  return `${dd}/${mm}/${yyyy}, ${hhs}:${min} ${ampm}`;
+}
+
+function getDocChatKey() {
+  const key = App.state.openDocKey || "unknown_doc";
+  return key;
+}
+
+function ensureDocChatStore() {
+  if (!App.db.docChat) App.db.docChat = {};
+  const k = getDocChatKey();
+  if (!App.db.docChat[k]) App.db.docChat[k] = [];
+  return App.db.docChat[k];
+}
+
+function renderDocChat() {
+  const list = $("doc-chat-list");
+  if (!list) return;
+
+  const msgs = ensureDocChatStore();
+
+  if (!msgs.length) {
+    list.innerHTML = `<div class="text-center text-slate-400 text-xs font-bold py-10">No remarks yet</div>`;
+    return;
+  }
+
+  list.innerHTML = msgs.map(m => {
+    const editedTag = m.edited ? `<span class="chat-edited-pill" onclick="toggleEditedPreview('${m.id}')">edited</span>` : ``;
+
+    return `
+      <div class="chat-bubble ${m.sender === App.state.email ? "me" : "other"}" data-msg="${m.id}">
+        <div class="font-extrabold">${escapeHtml(m.text)}</div>
+
+        ${m.edited ? `<div id="oldPreview_${m.id}" class="chat-old-preview hidden">
+          <div class="text-[10px] font-black uppercase opacity-70 mb-1">Previous</div>
+          ${escapeHtml(m.oldText || "")}
+        </div>` : ""}
+
+        <div class="chat-meta flex items-center justify-between gap-3">
+          <span>${formatDateTime(m.time)}</span>
+          ${editedTag}
+        </div>
+
+        ${m.sender === App.state.email ? `
+          <div class="chat-actions">
+            <div class="relative">
+              <button class="chat-dot-btn" onclick="toggleMsgMenu('${m.id}')">
+                <svg viewBox="0 0 24 24" width="18" height="18" style="stroke:none;fill:currentColor;opacity:0.75">
+                  <circle cx="5" cy="12" r="2"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                  <circle cx="19" cy="12" r="2"></circle>
+                </svg>
+              </button>
+
+              <div id="menu_${m.id}" class="chat-menu">
+                <button onclick="showMsgInfo('${m.id}')">
+                  <i data-lucide="info" class="w-4 h-4"></i>
+                  Info
+                </button>
+                <button onclick="editMsg('${m.id}')">
+                  <i data-lucide="pencil" class="w-4 h-4"></i>
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        ` : ""}
+      </div>
+    `;
+  }).join("");
+
+  renderIcons();
+}
+
+function toggleEditedPreview(id) {
+  const el = document.getElementById("oldPreview_" + id);
+  if (!el) return;
+  el.classList.toggle("hidden");
+}
+
+function toggleMsgMenu(id) {
+  document.querySelectorAll(".chat-menu").forEach(m => {
+    if (m.id !== "menu_" + id) m.style.display = "none";
+  });
+
+  const menu = document.getElementById("menu_" + id);
+  if (!menu) return;
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+function showMsgInfo(id) {
+  const msgs = ensureDocChatStore();
+  const m = msgs.find(x => x.id === id);
+  if (!m) return;
+  alert(`Message Info\n\nDate & Time: ${formatDateTime(m.time)}\nEdited: ${m.edited ? "Yes" : "No"}`);
+  toggleMsgMenu(id);
+}
+
+function editMsg(id) {
+  const msgs = ensureDocChatStore();
+  const m = msgs.find(x => x.id === id);
+  if (!m) return;
+
+  const newText = prompt("Edit your message:", m.text);
+  if (newText === null) return;
+  const trimmed = newText.trim();
+  if (!trimmed) return;
+
+  if (trimmed !== m.text) {
+    m.oldText = m.text;
+    m.text = trimmed;
+    m.edited = true;
+    m.editTime = Date.now();
+    saveData("vcs_doc_chat", App.db.docChat);
+    renderDocChat();
+    showToast("Message Edited");
+  }
+
+  toggleMsgMenu(id);
+}
+
+function bindDocChatControls() {
+  const sendBtn = $("docSendBtn");
+  const cancelBtn = $("docCancelBtn");
+  const input = $("doc-chat-input");
+
+  if (cancelBtn) {
+    cancelBtn.onclick = () => {
+      if (input) input.value = "";
+      showToast("Cleared");
+    };
+  }
+
+  if (sendBtn && input) {
+    sendBtn.onclick = () => {
+      const text = input.value.trim();
+      if (!text) return;
+
+      const msgs = ensureDocChatStore();
+      msgs.push({
+        id: "m_" + Date.now(),
+        sender: App.state.email || "unknown",
+        text,
+        time: Date.now(),
+        edited: false,
+        oldText: ""
+      });
+
+      saveData("vcs_doc_chat", App.db.docChat);
+
+      input.value = "";
+      renderDocChat();
+      showToast("Remark Sent");
+
+      setTimeout(() => {
+        const list = $("doc-chat-list");
+        if (list) list.scrollTop = list.scrollHeight;
+      }, 30);
+    };
+
+    input.onkeydown = (e) => {
+      if (e.key === "Enter") sendBtn.click();
+    };
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".chat-actions")) {
+      document.querySelectorAll(".chat-menu").forEach(m => m.style.display = "none");
+    }
+  });
+}
+
+/* Basic XSS safe text */
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+
+function renderDeadlineTimeline(items) {
+  if (!items || !items.length) {
+    return `<div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center text-xs font-bold text-slate-400">
+      No deadlines found
+    </div>`;
+  }
+
+  return `
+    <div class="space-y-4">
+      ${items.map(d => {
+        const statusColor = d.status === "Overdue" ? "bg-red-600" : d.status === "Upcoming" ? "bg-amber-500" : "bg-green-600";
+        const badgeColor = d.status === "Overdue" ? "text-red-600 bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-800" :
+                           d.status === "Upcoming" ? "text-amber-700 bg-amber-50 dark:bg-amber-900/20 border-amber-100 dark:border-amber-800" :
+                           "text-green-700 bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-800";
+
+        return `
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="timeline-dot ${statusColor} shadow"></div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <div class="flex-1 p-5 rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 shadow-sm glass-pop">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white">${d.title}</p>
+                  <p class="text-xs font-bold text-slate-500 mt-1">${d.client}</p>
+                  <p class="text-[11px] font-bold text-slate-400 mt-2">Due: ${d.due}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[11px] font-extrabold border ${badgeColor}">
+                  ${d.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+</script>
+</body>
+</html>
